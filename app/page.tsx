@@ -13,120 +13,215 @@ type Tool = {
 
 const tools: Tool[] = [
   {
+    name: "PDF AI Summarizer",
+    description: "Summarize PDF documents quickly with AI-powered insights.",
+    category: "AI",
+    icon: "📑",
+    href: "https://pdf-ai-summarizer-alpha.vercel.app/",
+    featured: true,
+  },
+  {
+    name: "Smart Note AI",
+    description: "Create smart, organized notes with the help of AI.",
+    category: "AI",
+    icon: "🧠",
+    href: "https://smart-note-btvps5422-krish-aiw-orks.vercel.app/",
+    featured: true,
+  },
+  {
+    name: "YouTube Video AI Summarizer",
+    description: "Turn long YouTube videos into concise AI-powered summaries.",
+    category: "AI",
+    icon: "▶️",
+    href: "https://youtube-ai-summarizer-eight.vercel.app/",
+    featured: true,
+  },
+  {
+    name: "AI Email Writer",
+    description: "Write professional emails quickly with AI.",
+    category: "AI",
+    icon: "✉️",
+    href: "https://ai-email-writer-chi.vercel.app/",
+    featured: true,
+  },
+  {
     name: "AI Resume Generator",
-    description:
-      "Create polished, professional resumes with the help of AI.",
+    description: "Create polished, professional resumes with AI.",
     category: "AI",
     icon: "📄",
-    href: "#",
+    href: "https://ai-resume-generator-steel.vercel.app/",
+    featured: true,
+  },
+  {
+    name: "AI Study Assistant",
+    description: "Get explanations, notes and study help powered by AI.",
+    category: "AI",
+    icon: "🎓",
+    href: "https://ai-study-assistant-phi-sooty.vercel.app/",
     featured: true,
   },
   {
     name: "AI Resume Analyzer",
-    description:
-      "Analyze your resume for ATS compatibility, strengths and improvements.",
+    description: "Analyze resumes for ATS compatibility, strengths and improvements.",
     category: "AI",
     icon: "🎯",
-    href: "#",
+    href: "https://ai-resume-analyzer-seven-xi.vercel.app/",
     featured: true,
   },
   {
     name: "AI Cover Letter Generator",
-    description:
-      "Generate tailored cover letters quickly for your next application.",
+    description: "Generate tailored cover letters for your next application.",
     category: "AI",
-    icon: "✉️",
-    href: "#",
+    icon: "💼",
+    href: "https://ai-cover-letter-generator-snowy.vercel.app/",
   },
   {
-    name: "AI Study Assistant",
-    description:
-      "Turn difficult topics into simple explanations, notes and study help.",
+    name: "AI YouTube Title & Description Generator",
+    description: "Generate engaging YouTube titles and descriptions with AI.",
     category: "AI",
-    icon: "🧠",
-    href: "#",
-    featured: true,
+    icon: "🎬",
+    href: "https://ai-youtube-title-description-genera.vercel.app/",
   },
   {
-    name: "YouTube Summarizer",
-    description:
-      "Turn long YouTube videos into structured AI-powered smart notes.",
+    name: "AI Instagram Caption Generator",
+    description: "Create engaging Instagram captions instantly with AI.",
     category: "AI",
-    icon: "▶️",
-    href: "#",
+    icon: "📸",
+    href: "https://ai-instagram-caption-generator-dusky.vercel.app/",
+  },
+  {
+    name: "AI LinkedIn Post Generator",
+    description: "Generate professional LinkedIn posts with AI.",
+    category: "AI",
+    icon: "💼",
+    href: "https://ai-linkedin-post-generator-one.vercel.app/",
+  },
+  {
+    name: "AI Blog Generator",
+    description: "Generate structured and engaging blog content with AI.",
+    category: "AI",
+    icon: "📝",
+    href: "https://ai-blog-generator-pearl.vercel.app/",
+  },
+  {
+    name: "AI Subtitle Generator",
+    description: "Generate subtitles quickly for your videos.",
+    category: "AI",
+    icon: "🎞️",
+    href: "https://ai-subtitle-generator-teal.vercel.app/",
+  },
+  {
+    name: "AI Email Reply Generator",
+    description: "Generate clear and professional email replies with AI.",
+    category: "AI",
+    icon: "↩️",
+    href: "https://ai-email-reply-generator-nu.vercel.app/",
+  },
+  {
+    name: "AI Text Humanizer",
+    description: "Rewrite AI-generated text to sound more natural and human.",
+    category: "AI",
+    icon: "✨",
+    href: "https://ai-text-humanizer-sigma.vercel.app/",
+  },
+  {
+    name: "AI Grammar & Writing Fixer",
+    description: "Fix grammar, spelling and writing issues instantly.",
+    category: "AI",
+    icon: "✍️",
+    href: "https://ai-grammar-writing-fixer.vercel.app/",
   },
 
   {
-    name: "QR Code Generator",
-    description:
-      "Create clean QR codes quickly for links, text and useful information.",
-    category: "Utility",
-    icon: "▦",
-    href: "#",
-  },
-  {
-    name: "PDF → JPG / PNG",
-    description:
-      "Convert PDF pages into high-quality images directly from your browser.",
+    name: "Image Resizer & Compressor",
+    description: "Resize and compress images while keeping them sharp.",
     category: "Utility",
     icon: "🖼️",
-    href: "#",
+    href: "https://image-resizer-compressor-psi.vercel.app/",
   },
   {
-    name: "Image → Text OCR",
-    description:
-      "Extract readable text from images with a simple OCR utility.",
-    category: "Utility",
-    icon: "🔎",
-    href: "#",
-  },
-  {
-    name: "Image Compressor",
-    description:
-      "Reduce image file size while keeping your images looking sharp.",
+    name: "PDF Compressor",
+    description: "Compress PDF files and reduce their size quickly.",
     category: "Utility",
     icon: "📦",
-    href: "#",
+    href: "https://pdf-compressor-livid-eight.vercel.app/",
+  },
+  {
+    name: "PDF Merger & Splitter",
+    description: "Merge multiple PDFs or split PDF documents easily.",
+    category: "Utility",
+    icon: "📚",
+    href: "https://pdf-merger-splitter-one.vercel.app/",
+  },
+  {
+    name: "Image to PDF",
+    description: "Convert images into PDF documents directly in your browser.",
+    category: "Utility",
+    icon: "🖼️",
+    href: "https://image-to-pdf-converter-seven-vert.vercel.app/",
+  },
+  {
+    name: "QR Code Generator & Scanner",
+    description: "Create and scan QR codes quickly for links and information.",
+    category: "Utility",
+    icon: "▦",
+    href: "https://qr-code-generator-scanner-gamma.vercel.app/",
+  },
+  {
+    name: "Password Generator",
+    description: "Generate strong and secure passwords instantly.",
+    category: "Utility",
+    icon: "🔐",
+    href: "https://password-generator-one-kappa-65.vercel.app/",
+  },
+  {
+    name: "ZIP File Creator",
+    description: "Create ZIP archives from your files quickly.",
+    category: "Utility",
+    icon: "🗜️",
+    href: "https://zip-file-creator.vercel.app/",
   },
   {
     name: "JSON Formatter & Validator",
-    description:
-      "Format, validate and work with JSON without unnecessary complexity.",
+    description: "Format, validate and inspect JSON with ease.",
     category: "Utility",
     icon: "{ }",
-    href: "#",
+    href: "https://json-formatter-validator-sigma.vercel.app/",
   },
   {
-    name: "Word Counter",
-    description:
-      "Count words, characters and estimate reading time instantly.",
+    name: "Unit Converter",
+    description: "Convert between common units quickly and easily.",
     category: "Utility",
-    icon: "📝",
-    href: "#",
-  },
-  {
-    name: "Markdown ↔ HTML",
-    description:
-      "Convert Markdown to HTML or HTML back into Markdown.",
-    category: "Utility",
-    icon: "⌘",
-    href: "#",
+    icon: "↔️",
+    href: "https://unit-converter-eight-pi.vercel.app/",
   },
   {
     name: "Base64 Encoder & Decoder",
-    description:
-      "Encode text into Base64 or decode Base64 strings in seconds.",
+    description: "Encode and decode Base64 strings in seconds.",
     category: "Utility",
-    icon: "🔐",
-    href: "#",
+    icon: "🔑",
+    href: "https://base64-encoder-decoder-three.vercel.app/",
+  },
+  {
+    name: "Word Counter & Reading Time",
+    description: "Count words, characters and estimate reading time instantly.",
+    category: "Utility",
+    icon: "📝",
+    href: "https://word-counter-reading-time.vercel.app/",
+  },
+  {
+    name: "Markdown → HTML Converter",
+    description: "Convert Markdown into clean HTML quickly.",
+    category: "Utility",
+    icon: "⌘",
+    href: "https://markdown-html-converter-5s58.vercel.app/",
   },
   {
     name: "Timestamp Converter",
-    description:
-      "Convert Unix timestamps into readable dates and back again.",
+    description: "Convert Unix timestamps into readable dates and back again.",
     category: "Utility",
     icon: "◷",
-    href: "#",
+    href: "https://timestamp-converter-fawn.vercel.app/",
   },
 ];
 
@@ -232,9 +327,13 @@ export default function Home() {
             </div>
 
             <div>
-              <h2 className="text-sm font-bold tracking-tight text-white sm:text-base">
-                KrishAIWorks
-              </h2>
+             <h2 className="text-base font-black tracking-[-0.03em] text-white sm:text-lg">
+  Krish
+  <span className="font-black text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]">
+    AI
+  </span>
+  Works
+</h2>
 
               <p className="text-[9px] font-medium tracking-wide text-zinc-500 sm:text-[10px]">
                 AI Solutions That Work
@@ -630,9 +729,13 @@ export default function Home() {
           <div className="pointer-events-none absolute left-1/2 top-[-220px] h-[450px] w-[650px] -translate-x-1/2 rounded-full bg-gradient-to-r from-fuchsia-500/[0.08] via-violet-500/[0.12] to-cyan-400/[0.07] blur-[140px]" />
 
           <div className="relative">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-violet-400/20 bg-violet-500/10 text-2xl shadow-lg shadow-violet-500/10">
-              ✦
-            </div>
+            <div className="mx-auto h-14 w-14 overflow-hidden rounded-2xl border border-blue-400/20 bg-blue-500/10 shadow-lg shadow-blue-500/20">
+  <img
+    src="/logo.png"
+    alt="KrishAIWorks Logo"
+    className="h-full w-full object-cover"
+  />
+</div>
 
             <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-violet-300">
               Work With KrishAIWorks
