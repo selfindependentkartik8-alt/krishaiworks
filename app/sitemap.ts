@@ -1,11 +1,9 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://krishaiworks.vercel.app";
-
   return [
     {
-      url: baseUrl,
+      url: "https://krishaiworks.com",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,

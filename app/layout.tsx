@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://krishaiworks.vercel.app"),
+  metadataBase: new URL("https://krishaiworks.com"),
 
   title: {
     default: "KrishAIWorks | AI Tools, Automation & Digital Solutions",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "KrishAIWorks",
-      url: "https://krishaiworks.vercel.app",
+      url: "https://krishaiworks.com",
     },
   ],
 
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
   category: "technology",
 
   alternates: {
-    canonical: "https://krishaiworks.vercel.app",
+    canonical: "https://krishaiworks.com",
   },
 
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://krishaiworks.vercel.app",
+    url: "https://krishaiworks.com",
     siteName: "KrishAIWorks",
     title: "KrishAIWorks | AI Tools, Automation & Digital Solutions",
     description:

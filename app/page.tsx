@@ -536,91 +536,256 @@ export default function Home() {
       </section>
 
       {/* ========================================================= */}
-      {/* TOOLS */}
-      {/* ========================================================= */}
+{/* TOOLS */}
+{/* ========================================================= */}
 
-      <section
-        id="tools"
-        className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
+<section
+  id="tools"
+  className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
+>
+  {/* Section heading */}
+  <div className="mx-auto max-w-3xl text-center">
+    <div className="mx-auto inline-flex rounded-full border border-violet-400/10 bg-violet-500/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
+      Explore Tools
+    </div>
+
+    <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+      Everything you need,
+      <br />
+      <span className="bg-gradient-to-r from-violet-300 to-cyan-300 bg-clip-text text-transparent">
+        in one place.
+      </span>
+    </h2>
+
+    <p className="mt-5 text-sm leading-7 text-zinc-500">
+      Explore AI tools and everyday utilities built with a focus on
+      simplicity, speed and useful results.
+    </p>
+  </div>
+
+  {/* Search */}
+  <div className="mx-auto mt-10 max-w-2xl">
+    <div className="relative">
+      <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-zinc-600">
+        ⌕
+      </span>
+
+      <input
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search tools..."
+        className="h-14 w-full rounded-2xl border border-white/[0.08] bg-black/40 px-12 text-sm text-white outline-none backdrop-blur-xl transition placeholder:text-zinc-600 focus:border-violet-400/30 focus:ring-2 focus:ring-violet-400/10"
+      />
+    </div>
+  </div>
+
+  {/* Category filters + stats */}
+  <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
+    <div className="flex flex-wrap justify-center gap-2">
+      {(["All", "AI", "Utility"] as const).map((category) => (
+        <button
+          key={category}
+          onClick={() => setActiveCategory(category)}
+          className={`rounded-xl px-5 py-2.5 text-xs font-semibold transition ${
+            activeCategory === category
+              ? "bg-violet-500 text-white shadow-lg shadow-violet-500/20"
+              : "border border-white/[0.07] bg-white/[0.025] text-zinc-500 hover:bg-white/[0.05] hover:text-zinc-300"
+          }`}
+        >
+          {category === "All"
+            ? "All Tools"
+            : category === "AI"
+            ? "AI Tools"
+            : "Utility Tools"}
+        </button>
+      ))}
+    </div>
+
+    <div className="text-xs text-zinc-600">
+      <span className="text-zinc-400">{filteredTools.length}</span>{" "}
+      tools available
+    </div>
+  </div>
+
+  {/* ========================================================= */}
+  {/* PREMIUM TOOL DIRECTORY */}
+  {/* ========================================================= */}
+
+  <div className="mt-12 space-y-8">
+    {/* ======================================================= */}
+    {/* AI TOOLS */}
+    {/* ======================================================= */}
+
+    {(activeCategory === "All" || activeCategory === "AI") &&
+      filteredTools.some((tool) => tool.category === "AI") && (
+        <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-7">
+          {/* Category header */}
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-violet-400/10 bg-violet-500/[0.08] text-lg">
+                  ✨
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-white">
+                    AI Tools
+                  </h3>
+
+                  <p className="mt-1 text-xs text-zinc-600">
+                    Intelligent tools built to make work faster.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <span className="w-fit rounded-full border border-violet-400/10 bg-violet-500/[0.05] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-violet-300">
+              AI Powered
+            </span>
+          </div>
+
+          {/* AI tool list */}
+          <div className="grid gap-3 lg:grid-cols-2">
+            {filteredTools
+              .filter((tool) => tool.category === "AI")
+              .map((tool) => (
+                <a
+                  key={tool.name}
+                  href={tool.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-black/25 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-violet-400/20 hover:bg-white/[0.035] hover:shadow-lg hover:shadow-violet-500/[0.06]"
+                >
+                  {/* Icon */}
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.035] text-xl transition group-hover:border-violet-400/20 group-hover:bg-violet-500/[0.08]">
+                    {tool.icon}
+                  </div>
+
+                  {/* Text */}
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <h4 className="truncate text-sm font-semibold text-white transition group-hover:text-violet-200">
+                        {tool.name}
+                      </h4>
+
+                      {tool.featured && (
+                        <span className="hidden shrink-0 rounded-full bg-violet-500/10 px-2 py-0.5 text-[9px] font-semibold text-violet-300 sm:inline-block">
+                          Featured
+                        </span>
+                      )}
+                    </div>
+
+                    <p className="mt-1 line-clamp-1 text-xs text-zinc-600">
+                      {tool.description}
+                    </p>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="shrink-0 text-sm text-zinc-700 transition group-hover:translate-x-1 group-hover:text-violet-300">
+                    →
+                  </div>
+                </a>
+              ))}
+          </div>
+        </div>
+      )}
+
+    {/* ======================================================= */}
+    {/* UTILITY TOOLS */}
+    {/* ======================================================= */}
+
+    {(activeCategory === "All" || activeCategory === "Utility") &&
+      filteredTools.some((tool) => tool.category === "Utility") && (
+        <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-7">
+          {/* Category header */}
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/10 bg-cyan-500/[0.07] text-lg">
+                  🛠️
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-white">
+                    Utility Tools
+                  </h3>
+
+                  <p className="mt-1 text-xs text-zinc-600">
+                    Simple utilities for everyday digital work.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <span className="w-fit rounded-full border border-cyan-400/10 bg-cyan-500/[0.05] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-cyan-300">
+              Free Utilities
+            </span>
+          </div>
+
+          {/* Utility tool list */}
+          <div className="grid gap-3 lg:grid-cols-2">
+            {filteredTools
+              .filter((tool) => tool.category === "Utility")
+              .map((tool) => (
+                <a
+                  key={tool.name}
+                  href={tool.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-black/25 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/20 hover:bg-white/[0.035] hover:shadow-lg hover:shadow-cyan-500/[0.05]"
+                >
+                  {/* Icon */}
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.035] text-xl transition group-hover:border-cyan-400/20 group-hover:bg-cyan-500/[0.07]">
+                    {tool.icon}
+                  </div>
+
+                  {/* Text */}
+                  <div className="min-w-0 flex-1">
+                    <h4 className="truncate text-sm font-semibold text-white transition group-hover:text-cyan-200">
+                      {tool.name}
+                    </h4>
+
+                    <p className="mt-1 line-clamp-1 text-xs text-zinc-600">
+                      {tool.description}
+                    </p>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="shrink-0 text-sm text-zinc-700 transition group-hover:translate-x-1 group-hover:text-cyan-300">
+                    →
+                  </div>
+                </a>
+              ))}
+          </div>
+        </div>
+      )}
+  </div>
+
+  {/* No results */}
+  {filteredTools.length === 0 && (
+    <div className="mt-10 rounded-3xl border border-white/[0.07] bg-white/[0.02] px-6 py-16 text-center">
+      <div className="text-3xl">⌕</div>
+
+      <h3 className="mt-4 text-lg font-semibold text-white">
+        No tools found
+      </h3>
+
+      <p className="mt-2 text-sm text-zinc-600">
+        Try searching for something else.
+      </p>
+
+      <button
+        onClick={() => {
+          setSearch("");
+          setActiveCategory("All");
+        }}
+        className="mt-5 rounded-xl border border-violet-400/10 bg-violet-500/[0.08] px-5 py-2.5 text-xs font-semibold text-violet-300 transition hover:bg-violet-500/[0.13]"
       >
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto inline-flex rounded-full border border-violet-400/10 bg-violet-500/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
-            Explore Tools
-          </div>
-
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Everything you need,
-            <br />
-            <span className="bg-gradient-to-r from-violet-300 to-cyan-300 bg-clip-text text-transparent">
-              in one place.
-            </span>
-          </h2>
-
-          <p className="mt-5 text-sm leading-7 text-zinc-500">
-            Explore AI tools and everyday utilities built with a focus on
-            simplicity, speed and useful results.
-          </p>
-        </div>
-
-        {/* Search */}
-        <div className="mx-auto mt-10 max-w-2xl">
-          <div className="relative">
-            <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-zinc-600">
-              ⌕
-            </span>
-
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search tools..."
-              className="h-14 w-full rounded-2xl border border-white/[0.08] bg-black/40 px-12 text-sm text-white outline-none backdrop-blur-xl transition placeholder:text-zinc-600 focus:border-violet-400/30 focus:ring-2 focus:ring-violet-400/10"
-            />
-          </div>
-        </div>
-
-        {/* Categories */}
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          {(["All", "AI", "Utility"] as const).map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`rounded-xl px-5 py-2.5 text-xs font-semibold transition ${
-                activeCategory === category
-                  ? "bg-violet-500 text-white shadow-lg shadow-violet-500/20"
-                  : "border border-white/[0.07] bg-white/[0.025] text-zinc-500 hover:bg-white/[0.05] hover:text-zinc-300"
-              }`}
-            >
-              {category === "All"
-                ? "All Tools"
-                : category === "AI"
-                ? "AI Tools"
-                : "Utility Tools"}
-            </button>
-          ))}
-        </div>
-
-        {/* Tool grid */}
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredTools.map((tool) => (
-            <ToolCard key={tool.name} tool={tool} />
-          ))}
-        </div>
-
-        {filteredTools.length === 0 && (
-          <div className="mt-12 rounded-3xl border border-white/[0.07] bg-white/[0.02] px-6 py-16 text-center">
-            <div className="text-3xl">⌕</div>
-
-            <h3 className="mt-4 text-lg font-semibold text-white">
-              No tools found
-            </h3>
-
-            <p className="mt-2 text-sm text-zinc-600">
-              Try searching for something else.
-            </p>
-          </div>
-        )}
-      </section>
-
+        Reset Search
+      </button>
+    </div>
+  )}
+</section>
       {/* ========================================================= */}
       {/* SERVICES */}
       {/* ========================================================= */}
