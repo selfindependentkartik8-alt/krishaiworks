@@ -89,6 +89,51 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://krishaiworks.com/#organization",
+      name: "KrishAIWorks",
+      url: "https://krishaiworks.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://krishaiworks.com/logo.png",
+        width: 512,
+        height: 512,
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://krishaiworks.com/#website",
+      url: "https://krishaiworks.com",
+      name: "KrishAIWorks",
+      description:
+        "AI-powered tools, productivity utilities, automation, chatbots, websites and custom digital solutions.",
+      publisher: {
+        "@id": "https://krishaiworks.com/#organization",
+      },
+      inLanguage: "en",
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://krishaiworks.com/#webpage",
+      url: "https://krishaiworks.com",
+      name: "KrishAIWorks | AI Tools, Automation & Digital Solutions",
+      description:
+        "KrishAIWorks provides AI-powered tools, productivity utilities, AI automation, chatbots, websites and custom digital solutions.",
+      isPartOf: {
+        "@id": "https://krishaiworks.com/#website",
+      },
+      about: {
+        "@id": "https://krishaiworks.com/#organization",
+      },
+      inLanguage: "en",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -98,6 +143,14 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+
+        {/* Structured Data / JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
 
         {/* Google Analytics */}
         <Script
