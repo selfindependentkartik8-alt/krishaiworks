@@ -152,6 +152,13 @@ export default function RootLayout({
           }}
         />
 
+        {/* Google AdSense */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3930572854952382"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-BS6TSMM1ZR"
