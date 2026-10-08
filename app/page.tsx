@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { Bubble } from "@typebot.io/nextjs";
 
 type Tool = {
   name: string;
@@ -8,220 +9,81 @@ type Tool = {
   category: "AI" | "Utility";
   icon: string;
   href: string;
-  featured?: boolean;
 };
 
-const tools: Tool[] = [
+
+<Bubble
+  typebot="krish-a-iworks-m4z1a0v"
+  previewMessage={{
+    message: "Hey! 👋 Need help with KrishAIWorks?",
+    autoShowDelay: 5000,
+    avatarUrl: "/logo.png",
+  }}
+  theme={{
+    button: {
+      backgroundColor: "#2563EB",
+      iconColor: "#FFFFFF",
+    },
+
+    previewMessage: {
+      backgroundColor: "#0A0A0F",
+      textColor: "#FFFFFF",
+    },
+
+    chatWindow: {
+      backgroundColor: "#FFFFFF",
+    },
+  }}
+/>
+
+const commonlyUsedTools: Tool[] = [
   {
     name: "PDF AI Summarizer",
-    description: "Summarize PDF documents quickly with AI-powered insights.",
+    description:
+      "Turn lengthy PDF documents into clear, concise summaries and find the important information faster.",
     category: "AI",
     icon: "📑",
-    href: "https://pdf-ai-summarizer-alpha.vercel.app/",
-    featured: true,
+    href: "https://pdfaisummarizer.krishaiworks.com/",
   },
   {
     name: "Smart Note AI",
-    description: "Create smart, organized notes with the help of AI.",
+    description:
+      "Create clearer, more organized notes and turn information into easier-to-understand content.",
     category: "AI",
     icon: "🧠",
-    href: "https://smart-note-btvps5422-krish-aiw-orks.vercel.app/",
-    featured: true,
+    href: "https://smartnotes.krishaiworks.com",
   },
   {
     name: "YouTube Video AI Summarizer",
-    description: "Turn long YouTube videos into concise AI-powered summaries.",
+    description:
+      "Get the key points from long YouTube videos without spending unnecessary time watching everything.",
     category: "AI",
     icon: "▶️",
-    href: "https://youtube-ai-summarizer-eight.vercel.app/",
-    featured: true,
+    href: "https://youtubeaisummarizer.krishaiworks.com",
   },
   {
     name: "AI Email Writer",
-    description: "Write professional emails quickly with AI.",
+    description:
+      "Create clear, professional emails faster with AI assistance for everyday communication.",
     category: "AI",
     icon: "✉️",
-    href: "https://ai-email-writer-chi.vercel.app/",
-    featured: true,
+    href: "https://aiemailwriter.krishaiworks.com",
   },
   {
     name: "AI Resume Generator",
-    description: "Create polished, professional resumes with AI.",
+    description:
+      "Create a polished resume and present your skills, experience and background more clearly.",
     category: "AI",
     icon: "📄",
-    href: "https://ai-resume-generator-steel.vercel.app/",
-    featured: true,
+    href: "https://airesumegenerator.krishaiworks.com",
   },
   {
     name: "AI Study Assistant",
-    description: "Get explanations, notes and study help powered by AI.",
+    description:
+      "Understand study topics, organize learning material and get help with everyday academic tasks.",
     category: "AI",
     icon: "🎓",
-    href: "https://ai-study-assistant-phi-sooty.vercel.app/",
-    featured: true,
-  },
-  {
-    name: "AI Resume Analyzer",
-    description: "Analyze resumes for ATS compatibility, strengths and improvements.",
-    category: "AI",
-    icon: "🎯",
-    href: "https://ai-resume-analyzer-seven-xi.vercel.app/",
-    featured: true,
-  },
-  {
-    name: "AI Cover Letter Generator",
-    description: "Generate tailored cover letters for your next application.",
-    category: "AI",
-    icon: "💼",
-    href: "https://ai-cover-letter-generator-snowy.vercel.app/",
-  },
-  {
-    name: "AI YouTube Title & Description Generator",
-    description: "Generate engaging YouTube titles and descriptions with AI.",
-    category: "AI",
-    icon: "🎬",
-    href: "https://ai-youtube-title-description-genera.vercel.app/",
-  },
-  {
-    name: "AI Instagram Caption Generator",
-    description: "Create engaging Instagram captions instantly with AI.",
-    category: "AI",
-    icon: "📸",
-    href: "https://ai-instagram-caption-generator-dusky.vercel.app/",
-  },
-  {
-    name: "AI LinkedIn Post Generator",
-    description: "Generate professional LinkedIn posts with AI.",
-    category: "AI",
-    icon: "💼",
-    href: "https://ai-linkedin-post-generator-one.vercel.app/",
-  },
-  {
-    name: "AI Blog Generator",
-    description: "Generate structured and engaging blog content with AI.",
-    category: "AI",
-    icon: "📝",
-    href: "https://ai-blog-generator-pearl.vercel.app/",
-  },
-  {
-    name: "AI Subtitle Generator",
-    description: "Generate subtitles quickly for your videos.",
-    category: "AI",
-    icon: "🎞️",
-    href: "https://ai-subtitle-generator-teal.vercel.app/",
-  },
-  {
-    name: "AI Email Reply Generator",
-    description: "Generate clear and professional email replies with AI.",
-    category: "AI",
-    icon: "↩️",
-    href: "https://ai-email-reply-generator-nu.vercel.app/",
-  },
-  {
-    name: "AI Text Humanizer",
-    description: "Rewrite AI-generated text to sound more natural and human.",
-    category: "AI",
-    icon: "✨",
-    href: "https://ai-text-humanizer-sigma.vercel.app/",
-  },
-  {
-    name: "AI Grammar & Writing Fixer",
-    description: "Fix grammar, spelling and writing issues instantly.",
-    category: "AI",
-    icon: "✍️",
-    href: "https://ai-grammar-writing-fixer.vercel.app/",
-  },
-
-  {
-    name: "Image Resizer & Compressor",
-    description: "Resize and compress images while keeping them sharp.",
-    category: "Utility",
-    icon: "🖼️",
-    href: "https://image-resizer-compressor-psi.vercel.app/",
-  },
-  {
-    name: "PDF Compressor",
-    description: "Compress PDF files and reduce their size quickly.",
-    category: "Utility",
-    icon: "📦",
-    href: "https://pdf-compressor-livid-eight.vercel.app/",
-  },
-  {
-    name: "PDF Merger & Splitter",
-    description: "Merge multiple PDFs or split PDF documents easily.",
-    category: "Utility",
-    icon: "📚",
-    href: "https://pdf-merger-splitter-one.vercel.app/",
-  },
-  {
-    name: "Image to PDF",
-    description: "Convert images into PDF documents directly in your browser.",
-    category: "Utility",
-    icon: "🖼️",
-    href: "https://image-to-pdf-converter-seven-vert.vercel.app/",
-  },
-  {
-    name: "QR Code Generator & Scanner",
-    description: "Create and scan QR codes quickly for links and information.",
-    category: "Utility",
-    icon: "▦",
-    href: "https://qr-code-generator-scanner-gamma.vercel.app/",
-  },
-  {
-    name: "Password Generator",
-    description: "Generate strong and secure passwords instantly.",
-    category: "Utility",
-    icon: "🔐",
-    href: "https://password-generator-one-kappa-65.vercel.app/",
-  },
-  {
-    name: "ZIP File Creator",
-    description: "Create ZIP archives from your files quickly.",
-    category: "Utility",
-    icon: "🗜️",
-    href: "https://zip-file-creator.vercel.app/",
-  },
-  {
-    name: "JSON Formatter & Validator",
-    description: "Format, validate and inspect JSON with ease.",
-    category: "Utility",
-    icon: "{ }",
-    href: "https://json-formatter-validator-sigma.vercel.app/",
-  },
-  {
-    name: "Unit Converter",
-    description: "Convert between common units quickly and easily.",
-    category: "Utility",
-    icon: "↔️",
-    href: "https://unit-converter-eight-pi.vercel.app/",
-  },
-  {
-    name: "Base64 Encoder & Decoder",
-    description: "Encode and decode Base64 strings in seconds.",
-    category: "Utility",
-    icon: "🔑",
-    href: "https://base64-encoder-decoder-three.vercel.app/",
-  },
-  {
-    name: "Word Counter & Reading Time",
-    description: "Count words, characters and estimate reading time instantly.",
-    category: "Utility",
-    icon: "📝",
-    href: "https://word-counter-reading-time.vercel.app/",
-  },
-  {
-    name: "Markdown → HTML Converter",
-    description: "Convert Markdown into clean HTML quickly.",
-    category: "Utility",
-    icon: "⌘",
-    href: "https://markdown-html-converter-5s58.vercel.app/",
-  },
-  {
-    name: "Timestamp Converter",
-    description: "Convert Unix timestamps into readable dates and back again.",
-    category: "Utility",
-    icon: "◷",
-    href: "https://timestamp-converter-fawn.vercel.app/",
+    href: "https://aistudyassistant.krishaiworks.com",
   },
 ];
 
@@ -236,88 +98,75 @@ const services = [
     icon: "💬",
     title: "AI Chatbots",
     description:
-      "Build intelligent chatbots for websites, customer support and lead capture.",
+      "Build useful chatbots for websites, customer support, FAQs, lead capture and everyday business workflows.",
   },
   {
     icon: "🌐",
     title: "Website Building",
     description:
-      "Create fast, modern and responsive websites designed around your goals.",
+      "Create modern, responsive websites designed around a clear purpose, useful user experience and business goals.",
   },
   {
     icon: "📈",
     title: "Lead Generation",
     description:
-      "Build systems that capture, organize and automate potential customer leads.",
+      "Build practical systems that capture, organize and automate potential customer leads.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What is KrishAIWorks?",
+    answer:
+      "KrishAIWorks is a collection of practical AI-powered and productivity-focused tools along with digital solutions for individuals and businesses. The platform is designed to make common tasks simpler and more accessible.",
+  },
+  {
+    question: "Are the tools useful for students?",
+    answer:
+      "Yes. Several tools are designed around common student workflows, including studying, organizing notes, summarizing information and working with educational content.",
+  },
+  {
+    question: "Can professionals use KrishAIWorks?",
+    answer:
+      "Yes. Tools such as the AI Email Writer and AI Resume Generator can help with professional communication, job applications and everyday productivity.",
+  },
+  {
+    question: "Do I need technical knowledge to use the tools?",
+    answer:
+      "No. The tools are designed around simple interfaces so users can focus on the task rather than dealing with complicated technical workflows.",
+  },
+  {
+    question: "Is KrishAIWorks only for AI tools?",
+    answer:
+      "No. KrishAIWorks includes AI-powered tools as well as practical utility and productivity tools. The complete collection is available through the All Tools directory.",
+  },
+  {
+    question: "Can I request a custom AI solution?",
+    answer:
+      "Yes. KrishAIWorks also works on AI chatbots, automations, websites and lead-generation systems. You can get in touch through the contact section to discuss a project.",
   },
 ];
 
 export default function Home() {
-  const [activeCategory, setActiveCategory] = useState<
-    "All" | "AI" | "Utility"
-  >("All");
-
   const [search, setSearch] = useState("");
+  const [showCommonlyUsed, setShowCommonlyUsed] = useState(true);
 
-  useEffect(() => {
-  const script = document.createElement("script");
 
-  script.type = "module";
-  script.textContent = `
-    import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js";
-
-    Typebot.initBubble({
-      typebot: "krish-a-iworks-m4z1a0v",
-
-      previewMessage: {
-        message: "Hey! 👋 Need help with KrishAIWorks?",
-        autoShowDelay: 5000,
-        avatarUrl: "/logo.png",
-      },
-
-      theme: {
-        button: {
-          backgroundColor: "#2563EB",
-          iconColor: "#FFFFFF",
-        },
-
-        previewMessage: {
-          backgroundColor: "#0A0A0F",
-          textColor: "#FFFFFF",
-        },
-
-        chatWindow: {
-          backgroundColor: "#FFFFFF",
-          maxWidth: "420px",
-          maxHeight: "600px",
-          borderRadius: "20px",
-        },
-      },
-    });
-  `;
-
-  document.body.appendChild(script);
-
-  return () => {
-    script.remove();
-  };
-}, []);
 
   const filteredTools = useMemo(() => {
-    return tools.filter((tool) => {
-      const matchesCategory =
-        activeCategory === "All" || tool.category === activeCategory;
+    const query = search.toLowerCase().trim();
 
-      const query = search.toLowerCase().trim();
+    if (!query) {
+      return commonlyUsedTools;
+    }
 
-      const matchesSearch =
-        !query ||
+    return commonlyUsedTools.filter(
+      (tool) =>
         tool.name.toLowerCase().includes(query) ||
-        tool.description.toLowerCase().includes(query);
-
-      return matchesCategory && matchesSearch;
-    });
-  }, [activeCategory, search]);
+        tool.description.toLowerCase().includes(query) ||
+        tool.category.toLowerCase().includes(query),
+    );
+  }, [search]);
 
   const scrollToTools = () => {
     document
@@ -331,6 +180,12 @@ export default function Home() {
       ?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToAbout = () => {
+    document
+      .getElementById("about")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#030305] text-white selection:bg-violet-400/30">
       {/* ========================================================= */}
@@ -338,19 +193,14 @@ export default function Home() {
       {/* ========================================================= */}
 
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        {/* Main aurora */}
         <div className="absolute left-1/2 top-[-320px] h-[700px] w-[1100px] -translate-x-1/2 rounded-full bg-gradient-to-r from-fuchsia-500/[0.13] via-violet-500/[0.18] to-cyan-400/[0.12] blur-[180px]" />
 
-        {/* Violet */}
         <div className="absolute left-[-280px] top-[25%] h-[550px] w-[550px] rounded-full bg-violet-600/[0.07] blur-[170px]" />
 
-        {/* Cyan */}
         <div className="absolute right-[-280px] top-[42%] h-[550px] w-[550px] rounded-full bg-cyan-500/[0.06] blur-[170px]" />
 
-        {/* Pink */}
         <div className="absolute left-[35%] top-[68%] h-[500px] w-[600px] rounded-full bg-fuchsia-500/[0.045] blur-[180px]" />
 
-        {/* Very subtle center glow */}
         <div className="absolute left-1/2 top-[45%] h-[800px] w-[900px] -translate-x-1/2 rounded-full bg-violet-500/[0.018] blur-[180px]" />
       </div>
 
@@ -360,7 +210,6 @@ export default function Home() {
 
       <nav className="relative z-30 mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between rounded-2xl border border-white/[0.08] bg-black/35 px-4 py-3 shadow-2xl shadow-black/30 backdrop-blur-2xl sm:px-5">
-          {/* Brand */}
           <a href="#" className="flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-full border border-violet-400/20 bg-white/[0.05] shadow-lg shadow-violet-500/10">
               <img
@@ -371,13 +220,13 @@ export default function Home() {
             </div>
 
             <div>
-             <h2 className="text-base font-black tracking-[-0.03em] text-white sm:text-lg">
-  Krish
-  <span className="font-black text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]">
-    AI
-  </span>
-  Works
-</h2>
+              <h2 className="text-base font-black tracking-[-0.03em] text-white sm:text-lg">
+                Krish
+                <span className="font-black text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]">
+                  AI
+                </span>
+                Works
+              </h2>
 
               <p className="text-[9px] font-medium tracking-wide text-zinc-500 sm:text-[10px]">
                 AI Solutions That Work
@@ -385,7 +234,6 @@ export default function Home() {
             </div>
           </a>
 
-          {/* Desktop navigation */}
           <div className="hidden items-center gap-1 md:flex">
             <a
               href="#tools"
@@ -423,7 +271,6 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Mobile contact */}
           <button
             onClick={scrollToContact}
             className="rounded-xl border border-violet-400/20 bg-violet-500/10 px-4 py-2 text-xs font-semibold text-violet-200 transition hover:bg-violet-500/15 md:hidden"
@@ -438,7 +285,6 @@ export default function Home() {
       {/* ========================================================= */}
 
       <section className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-5 pb-24 pt-20 text-center sm:px-8 sm:pt-28">
-        {/* Badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.035] px-4 py-2 text-xs text-zinc-300 shadow-xl shadow-black/20 backdrop-blur-xl">
           <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-fuchsia-400 to-cyan-300 shadow-lg shadow-violet-400/50" />
           AI Tools · Automation · Digital Solutions
@@ -461,9 +307,9 @@ export default function Home() {
         </h1>
 
         <p className="mt-7 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
-          A growing collection of AI-powered tools, productivity utilities and
-          custom digital solutions designed to make everyday work simpler,
-          faster and smarter.
+          Explore practical AI tools and digital solutions designed to help
+          students, creators, professionals and businesses simplify everyday
+          tasks, work more efficiently and get more done.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -482,10 +328,9 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Trust pills */}
         <div className="mt-8 flex flex-wrap justify-center gap-2.5">
           <span className="rounded-full border border-white/[0.06] bg-white/[0.025] px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl">
-            ⚡ Fast
+            ⚡ Practical
           </span>
 
           <span className="rounded-full border border-white/[0.06] bg-white/[0.025] px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl">
@@ -503,289 +348,361 @@ export default function Home() {
       </section>
 
       {/* ========================================================= */}
-      {/* FEATURED TOOLS */}
+      {/* ABOUT KRISHAIWORKS */}
       {/* ========================================================= */}
 
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-24 sm:px-8">
-        <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
+      <section
+        id="about"
+        className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-20 sm:px-8"
+      >
+        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
-              Featured
+              About KrishAIWorks
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Tools built to be useful.
+            <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Practical technology for everyday work.
             </h2>
+
+            <div className="mt-6 space-y-5 text-sm leading-7 text-zinc-400">
+              <p>
+                KrishAIWorks is a collection of practical AI-powered,
+                productivity and digital tools created to make common tasks
+                simpler. Instead of requiring users to learn complicated
+                software or workflows, the platform focuses on straightforward
+                tools that can be used for specific everyday needs.
+              </p>
+
+              <p>
+                The platform brings together tools for students, creators,
+                professionals, job seekers and businesses. These tools can help
+                with tasks such as understanding long documents, organizing
+                information, writing emails, preparing resumes and working with
+                educational content.
+              </p>
+
+              <p>
+                Alongside its online tools, KrishAIWorks also works on custom
+                digital solutions including AI chatbots, automation systems,
+                websites and lead-generation workflows.
+              </p>
+            </div>
           </div>
 
-          <button
-            onClick={scrollToTools}
-            className="w-fit text-sm font-medium text-zinc-500 transition hover:text-violet-300"
-          >
-            View all tools →
-          </button>
-        </div>
+          <div className="rounded-3xl border border-violet-400/[0.10] bg-gradient-to-br from-violet-500/[0.07] via-white/[0.018] to-cyan-500/[0.04] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/10 bg-violet-500/[0.08] text-xl">
+              ✨
+            </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
-          {tools
-            .filter((tool) => tool.featured)
-            .map((tool) => (
-              <ToolCard key={tool.name} tool={tool} featured />
-            ))}
+            <h3 className="mt-6 text-2xl font-bold text-white">
+              What can you do here?
+            </h3>
+
+            <div className="mt-6 space-y-4">
+              {[
+                "Summarize documents and long-form content",
+                "Organize notes and information",
+                "Write and improve everyday communication",
+                "Create professional resumes",
+                "Get help with studying and learning",
+                "Explore useful productivity utilities",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 text-sm leading-6 text-zinc-400"
+                >
+                  <span className="mt-1 text-violet-300">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={scrollToTools}
+              className="mt-8 rounded-xl border border-violet-400/15 bg-violet-500/[0.08] px-5 py-3 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/[0.13]"
+            >
+              Explore the tools →
+            </button>
+          </div>
         </div>
       </section>
 
       {/* ========================================================= */}
-{/* TOOLS */}
-{/* ========================================================= */}
+      {/* EXPLORE TOOLS */}
+      {/* ========================================================= */}
 
-<section
-  id="tools"
-  className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
->
-  {/* Section heading */}
-  <div className="mx-auto max-w-3xl text-center">
-    <div className="mx-auto inline-flex rounded-full border border-violet-400/10 bg-violet-500/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
-      Explore Tools
-    </div>
-
-    <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-      Everything you need,
-      <br />
-      <span className="bg-gradient-to-r from-violet-300 to-cyan-300 bg-clip-text text-transparent">
-        in one place.
-      </span>
-    </h2>
-
-    <p className="mt-5 text-sm leading-7 text-zinc-500">
-      Explore AI tools and everyday utilities built with a focus on
-      simplicity, speed and useful results.
-    </p>
-  </div>
-
-  {/* Search */}
-  <div className="mx-auto mt-10 max-w-2xl">
-    <div className="relative">
-      <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-zinc-600">
-        ⌕
-      </span>
-
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search tools..."
-        className="h-14 w-full rounded-2xl border border-white/[0.08] bg-black/40 px-12 text-sm text-white outline-none backdrop-blur-xl transition placeholder:text-zinc-600 focus:border-violet-400/30 focus:ring-2 focus:ring-violet-400/10"
-      />
-    </div>
-  </div>
-
-  {/* Category filters + stats */}
-  <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
-    <div className="flex flex-wrap justify-center gap-2">
-      {(["All", "AI", "Utility"] as const).map((category) => (
-        <button
-          key={category}
-          onClick={() => setActiveCategory(category)}
-          className={`rounded-xl px-5 py-2.5 text-xs font-semibold transition ${
-            activeCategory === category
-              ? "bg-violet-500 text-white shadow-lg shadow-violet-500/20"
-              : "border border-white/[0.07] bg-white/[0.025] text-zinc-500 hover:bg-white/[0.05] hover:text-zinc-300"
-          }`}
-        >
-          {category === "All"
-            ? "All Tools"
-            : category === "AI"
-            ? "AI Tools"
-            : "Utility Tools"}
-        </button>
-      ))}
-    </div>
-
-    <div className="text-xs text-zinc-600">
-      <span className="text-zinc-400">{filteredTools.length}</span>{" "}
-      tools available
-    </div>
-  </div>
-
-  {/* ========================================================= */}
-  {/* PREMIUM TOOL DIRECTORY */}
-  {/* ========================================================= */}
-
-  <div className="mt-12 space-y-8">
-    {/* ======================================================= */}
-    {/* AI TOOLS */}
-    {/* ======================================================= */}
-
-    {(activeCategory === "All" || activeCategory === "AI") &&
-      filteredTools.some((tool) => tool.category === "AI") && (
-        <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-7">
-          {/* Category header */}
-          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-violet-400/10 bg-violet-500/[0.08] text-lg">
-                  ✨
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-white">
-                    AI Tools
-                  </h3>
-
-                  <p className="mt-1 text-xs text-zinc-600">
-                    Intelligent tools built to make work faster.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <span className="w-fit rounded-full border border-violet-400/10 bg-violet-500/[0.05] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-violet-300">
-              AI Powered
-            </span>
+      <section
+        id="tools"
+        className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto inline-flex rounded-full border border-violet-400/10 bg-violet-500/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
+            Explore Tools
           </div>
 
-          {/* AI tool list */}
-          <div className="grid gap-3 lg:grid-cols-2">
-            {filteredTools
-              .filter((tool) => tool.category === "AI")
-              .map((tool) => (
-                <a
-                  key={tool.name}
-                  href={tool.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-black/25 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-violet-400/20 hover:bg-white/[0.035] hover:shadow-lg hover:shadow-violet-500/[0.06]"
+          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            Useful tools,
+            <br />
+            <span className="bg-gradient-to-r from-violet-300 to-cyan-300 bg-clip-text text-transparent">
+              all in one place.
+            </span>
+          </h2>
+
+          <p className="mt-5 text-sm leading-7 text-zinc-500">
+            Search the commonly used tools below or open the complete tool
+            directory to explore everything available on KrishAIWorks.
+          </p>
+        </div>
+
+        {/* SEARCH */}
+        <div className="mx-auto mt-10 max-w-3xl">
+          <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-black/45 shadow-2xl shadow-violet-950/10 backdrop-blur-2xl transition focus-within:border-violet-400/25 focus-within:shadow-violet-500/[0.08]">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-violet-500/[0.035] via-transparent to-cyan-500/[0.035]" />
+
+            <div className="relative flex items-center">
+              <span className="pointer-events-none pl-5 text-xl text-zinc-500">
+                ⌕
+              </span>
+
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search tools..."
+                aria-label="Search KrishAIWorks tools"
+                className="h-14 w-full bg-transparent px-4 text-sm text-white outline-none placeholder:text-zinc-600"
+              />
+
+              {search && (
+                <button
+                  onClick={() => setSearch("")}
+                  aria-label="Clear search"
+                  className="mr-3 rounded-lg px-3 py-2 text-xs text-zinc-500 transition hover:bg-white/[0.05] hover:text-white"
                 >
-                  {/* Icon */}
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.035] text-xl transition group-hover:border-violet-400/20 group-hover:bg-violet-500/[0.08]">
-                    {tool.icon}
-                  </div>
+                  Clear
+                </button>
+              )}
+            </div>
+          </div>
 
-                  {/* Text */}
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
-                      <h4 className="truncate text-sm font-semibold text-white transition group-hover:text-violet-200">
-                        {tool.name}
-                      </h4>
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 px-1 text-[11px] text-zinc-700">
+            <span>Search by tool name or what you want to accomplish.</span>
 
-                      {tool.featured && (
-                        <span className="hidden shrink-0 rounded-full bg-violet-500/10 px-2 py-0.5 text-[9px] font-semibold text-violet-300 sm:inline-block">
-                          Featured
-                        </span>
-                      )}
-                    </div>
-
-                    <p className="mt-1 line-clamp-1 text-xs text-zinc-600">
-                      {tool.description}
-                    </p>
-                  </div>
-
-                  {/* Arrow */}
-                  <div className="shrink-0 text-sm text-zinc-700 transition group-hover:translate-x-1 group-hover:text-violet-300">
-                    →
-                  </div>
-                </a>
-              ))}
+            {search && (
+              <span className="text-violet-400">
+                Searching for “{search}”
+              </span>
+            )}
           </div>
         </div>
-      )}
 
-    {/* ======================================================= */}
-    {/* UTILITY TOOLS */}
-    {/* ======================================================= */}
+        {/* ======================================================= */}
+        {/* TWO OPTIONS ONLY */}
+        {/* ======================================================= */}
 
-    {(activeCategory === "All" || activeCategory === "Utility") &&
-      filteredTools.some((tool) => tool.category === "Utility") && (
-        <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-7">
-          {/* Category header */}
-          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/10 bg-cyan-500/[0.07] text-lg">
-                  🛠️
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-white">
-                    Utility Tools
-                  </h3>
-
-                  <p className="mt-1 text-xs text-zinc-600">
-                    Simple utilities for everyday digital work.
-                  </p>
-                </div>
+        <div className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
+          <button
+            onClick={() => {
+              window.location.href = "/tools";
+            }}
+            className="group rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5 text-left transition hover:-translate-y-0.5 hover:border-violet-400/20 hover:bg-violet-500/[0.05] hover:shadow-xl hover:shadow-violet-500/[0.05]"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-violet-400/10 bg-violet-500/[0.08] text-lg">
+                ✦
               </div>
+
+              <span className="text-zinc-700 transition group-hover:text-violet-300">
+                →
+              </span>
             </div>
 
-            <span className="w-fit rounded-full border border-cyan-400/10 bg-cyan-500/[0.05] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-cyan-300">
-              Free Utilities
-            </span>
-          </div>
+            <h3 className="mt-5 text-base font-bold text-white">
+              All Tools
+            </h3>
 
-          {/* Utility tool list */}
-          <div className="grid gap-3 lg:grid-cols-2">
-            {filteredTools
-              .filter((tool) => tool.category === "Utility")
-              .map((tool) => (
-                <a
-                  key={tool.name}
-                  href={tool.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-black/25 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/20 hover:bg-white/[0.035] hover:shadow-lg hover:shadow-cyan-500/[0.05]"
-                >
-                  {/* Icon */}
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.035] text-xl transition group-hover:border-cyan-400/20 group-hover:bg-cyan-500/[0.07]">
-                    {tool.icon}
+            <p className="mt-2 text-xs leading-6 text-zinc-500">
+              Explore the complete KrishAIWorks tool collection, including AI
+              tools and practical utilities.
+            </p>
+          </button>
+
+          <button
+            onClick={() => setShowCommonlyUsed(true)}
+            className={`group rounded-2xl border p-5 text-left transition hover:-translate-y-0.5 ${
+              showCommonlyUsed
+                ? "border-violet-400/20 bg-violet-500/[0.06] shadow-xl shadow-violet-500/[0.05]"
+                : "border-white/[0.07] bg-white/[0.025] hover:border-violet-400/20 hover:bg-violet-500/[0.05]"
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/10 bg-cyan-500/[0.07] text-lg">
+                ⚡
+              </div>
+
+              <span className="text-zinc-700 transition group-hover:text-cyan-300">
+                ↓
+              </span>
+            </div>
+
+            <h3 className="mt-5 text-base font-bold text-white">
+              Commonly Used
+            </h3>
+
+            <p className="mt-2 text-xs leading-6 text-zinc-500">
+              Quickly access six selected tools that are useful for common
+              everyday tasks.
+            </p>
+          </button>
+        </div>
+
+        {/* COMMONLY USED TOOLS */}
+        {showCommonlyUsed && (
+          <div className="mt-10 rounded-3xl border border-white/[0.07] bg-white/[0.018] p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-7">
+            <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/10 bg-cyan-500/[0.07] text-lg">
+                    ⚡
                   </div>
 
-                  {/* Text */}
-                  <div className="min-w-0 flex-1">
-                    <h4 className="truncate text-sm font-semibold text-white transition group-hover:text-cyan-200">
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      Commonly Used Tools
+                    </h3>
+
+                    <p className="mt-1 text-xs text-zinc-600">
+                      A quick selection of practical tools to get started.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <span className="w-fit rounded-full border border-cyan-400/10 bg-cyan-500/[0.05] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-cyan-300">
+                {filteredTools.length}{" "}
+                {filteredTools.length === 1 ? "Tool" : "Tools"}
+              </span>
+            </div>
+
+            {filteredTools.length > 0 ? (
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {filteredTools.map((tool) => (
+                  <a
+                    key={tool.name}
+                    href={tool.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col rounded-2xl border border-white/[0.06] bg-black/25 p-5 transition duration-300 hover:-translate-y-1 hover:border-violet-400/20 hover:bg-white/[0.035] hover:shadow-xl hover:shadow-violet-500/[0.06]"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.035] text-xl transition group-hover:border-violet-400/20 group-hover:bg-violet-500/[0.08]">
+                        {tool.icon}
+                      </div>
+
+                      <span className="text-zinc-700 transition group-hover:text-violet-300">
+                        ↗
+                      </span>
+                    </div>
+
+                    <h4 className="mt-5 text-sm font-semibold text-white transition group-hover:text-violet-200">
                       {tool.name}
                     </h4>
 
-                    <p className="mt-1 line-clamp-1 text-xs text-zinc-600">
+                    <p className="mt-2 flex-1 text-xs leading-6 text-zinc-500">
                       {tool.description}
                     </p>
-                  </div>
 
-                  {/* Arrow */}
-                  <div className="shrink-0 text-sm text-zinc-700 transition group-hover:translate-x-1 group-hover:text-cyan-300">
-                    →
-                  </div>
+                    <div className="mt-5 text-xs font-medium text-violet-400 transition group-hover:text-violet-300">
+                      Open tool →
+                    </div>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-white/[0.06] bg-black/20 px-5 py-12 text-center">
+                <div className="text-3xl">⌕</div>
+
+                <h3 className="mt-4 text-base font-semibold text-white">
+                  No commonly used tool found
+                </h3>
+
+                <p className="mt-2 text-sm text-zinc-600">
+                  Try another search term or open the complete tool directory.
+                </p>
+
+                <a
+                  href="/tools"
+                  className="mt-5 inline-flex rounded-xl bg-violet-500/10 px-5 py-2.5 text-xs font-semibold text-violet-300 transition hover:bg-violet-500/15"
+                >
+                  Explore All Tools →
                 </a>
-              ))}
+              </div>
+            )}
           </div>
+        )}
+      </section>
+
+      {/* ========================================================= */}
+      {/* WHAT KRISHAIWORKS IS FOR */}
+      {/* ========================================================= */}
+
+      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 sm:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+            Built for real workflows
+          </p>
+
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Useful technology for different kinds of users.
+          </h2>
+
+          <p className="mt-4 text-sm leading-7 text-zinc-500">
+            KrishAIWorks focuses on practical use cases rather than adding
+            technology for the sake of technology.
+          </p>
         </div>
-      )}
-  </div>
 
-  {/* No results */}
-  {filteredTools.length === 0 && (
-    <div className="mt-10 rounded-3xl border border-white/[0.07] bg-white/[0.02] px-6 py-16 text-center">
-      <div className="text-3xl">⌕</div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              icon: "🎓",
+              title: "Students",
+              text: "Study, summarize, organize information and make learning workflows easier.",
+            },
+            {
+              icon: "🎨",
+              title: "Creators",
+              text: "Save time on writing, research and other repetitive content-related tasks.",
+            },
+            {
+              icon: "💼",
+              title: "Professionals",
+              text: "Improve everyday communication, documents and productivity workflows.",
+            },
+            {
+              icon: "🏢",
+              title: "Businesses",
+              text: "Explore chatbots, automations, websites and practical lead-generation systems.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-2xl border border-white/[0.06] bg-white/[0.018] p-6 backdrop-blur-xl transition hover:border-violet-400/15 hover:bg-white/[0.025]"
+            >
+              <div className="text-2xl">{item.icon}</div>
 
-      <h3 className="mt-4 text-lg font-semibold text-white">
-        No tools found
-      </h3>
+              <h3 className="mt-5 text-base font-bold text-white">
+                {item.title}
+              </h3>
 
-      <p className="mt-2 text-sm text-zinc-600">
-        Try searching for something else.
-      </p>
+              <p className="mt-2 text-xs leading-6 text-zinc-500">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <button
-        onClick={() => {
-          setSearch("");
-          setActiveCategory("All");
-        }}
-        className="mt-5 rounded-xl border border-violet-400/10 bg-violet-500/[0.08] px-5 py-2.5 text-xs font-semibold text-violet-300 transition hover:bg-violet-500/[0.13]"
-      >
-        Reset Search
-      </button>
-    </div>
-  )}
-</section>
       {/* ========================================================= */}
       {/* SERVICES */}
       {/* ========================================================= */}
@@ -795,91 +712,44 @@ export default function Home() {
         className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
       >
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto inline-flex rounded-full border border-fuchsia-400/10 bg-fuchsia-500/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-fuchsia-300">
-            Custom Solutions
-          </div>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+            Digital Solutions
+          </p>
 
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Need something
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            Beyond tools.
             <br />
-            <span className="bg-gradient-to-r from-fuchsia-300 via-violet-300 to-cyan-300 bg-clip-text text-transparent">
-              built for you?
+            <span className="bg-gradient-to-r from-violet-300 to-cyan-300 bg-clip-text text-transparent">
+              Build something useful.
             </span>
           </h2>
 
           <p className="mt-5 text-sm leading-7 text-zinc-500">
-            KrishAIWorks also builds custom digital solutions for individuals,
-            creators and businesses.
+            KrishAIWorks also builds practical digital systems for people and
+            businesses that need something more specific than an off-the-shelf
+            tool.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
           {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+            <div
+              key={service.title}
+              className="group rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-violet-400/15 hover:bg-white/[0.025]"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/10 bg-violet-500/[0.07] text-xl transition group-hover:bg-violet-500/[0.12]">
+                {service.icon}
+              </div>
+
+              <h3 className="mt-6 text-xl font-bold text-white">
+                {service.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-zinc-500">
+                {service.description}
+              </p>
+            </div>
           ))}
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* WHY KRISHAIWORKS */}
-      {/* ========================================================= */}
-
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
-        <div className="overflow-hidden rounded-[2rem] border border-white/[0.07] bg-gradient-to-br from-white/[0.035] via-black/40 to-violet-950/[0.12] p-7 shadow-2xl shadow-black/30 backdrop-blur-2xl sm:p-12">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-                Why KrishAIWorks
-              </p>
-
-              <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-                Technology should
-                <br />
-                <span className="bg-gradient-to-r from-cyan-300 to-violet-300 bg-clip-text text-transparent">
-                  solve problems.
-                </span>
-              </h2>
-
-              <p className="mt-5 max-w-xl text-sm leading-8 text-zinc-500">
-                From simple utilities to AI-powered workflows, every project
-                is built around one goal: making useful technology easier to
-                access and easier to use.
-              </p>
-
-              <button
-                onClick={scrollToTools}
-                className="mt-7 rounded-xl border border-violet-400/20 bg-violet-500/10 px-6 py-3 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/15 active:scale-95"
-              >
-                Explore the tools →
-              </button>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              <MiniStat
-                icon="⚡"
-                title="Simple"
-                description="Clean interfaces without unnecessary complexity."
-              />
-
-              <MiniStat
-                icon="🧠"
-                title="Useful"
-                description="Tools designed around real-world problems."
-              />
-
-              <MiniStat
-                icon="📱"
-                title="Responsive"
-                description="Designed to work beautifully across devices."
-              />
-
-              <MiniStat
-                icon="🚀"
-                title="Growing"
-                description="New tools and solutions are continuously added."
-              />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -891,101 +761,115 @@ export default function Home() {
         id="how"
         className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
       >
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto inline-flex rounded-full border border-cyan-400/10 bg-cyan-500/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-            How It Works
+        <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+              How It Works
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Simple from start to finish.
+            </h2>
+
+            <p className="mt-4 text-sm leading-7 text-zinc-500">
+              The platform is designed so you can spend less time figuring out
+              software and more time completing the task you came for.
+            </p>
           </div>
 
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Find it. Use it. Get it done.
-          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                number: "01",
+                title: "Choose a tool",
+                text: "Find a tool that matches the task you want to complete.",
+              },
+              {
+                number: "02",
+                title: "Provide your input",
+                text: "Enter the information or upload the content required by the selected tool.",
+              },
+              {
+                number: "03",
+                title: "Use the result",
+                text: "Review the generated or processed result and use it for your workflow.",
+              },
+            ].map((step) => (
+              <div key={step.number} className="relative">
+                <div className="text-sm font-black text-violet-400/70">
+                  {step.number}
+                </div>
 
-          <p className="mt-5 text-sm leading-7 text-zinc-500">
-            No complicated setup. Pick the tool you need and get started.
-          </p>
-        </div>
+                <h3 className="mt-3 text-lg font-bold text-white">
+                  {step.title}
+                </h3>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          <StepCard
-            number="01"
-            title="Choose a Tool"
-            description="Browse AI tools and utilities or search for exactly what you need."
-          />
-
-          <StepCard
-            number="02"
-            title="Enter Your Input"
-            description="Provide the information required by the selected tool."
-          />
-
-          <StepCard
-            number="03"
-            title="Get Your Result"
-            description="Use the generated result and get back to your work."
-          />
+                <p className="mt-2 text-sm leading-6 text-zinc-500">
+                  {step.text}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ========================================================= */}
-      {/* CONTACT / HIRE */}
+      {/* WHY KRISHAIWORKS */}
       {/* ========================================================= */}
 
-      <section
-        id="contact"
-        className="relative z-10 mx-auto w-full max-w-5xl scroll-mt-8 px-5 py-24 sm:px-8"
-      >
-        <div className="relative overflow-hidden rounded-[2rem] border border-violet-400/10 bg-gradient-to-br from-violet-950/30 via-black/80 to-cyan-950/20 px-6 py-14 text-center shadow-2xl shadow-violet-950/20 backdrop-blur-2xl sm:px-12">
-          <div className="pointer-events-none absolute left-1/2 top-[-220px] h-[450px] w-[650px] -translate-x-1/2 rounded-full bg-gradient-to-r from-fuchsia-500/[0.08] via-violet-500/[0.12] to-cyan-400/[0.07] blur-[140px]" />
-
-          <div className="relative">
-            <div className="mx-auto h-14 w-14 overflow-hidden rounded-2xl border border-blue-400/20 bg-blue-500/10 shadow-lg shadow-blue-500/20">
-  <img
-    src="/logo.png"
-    alt="KrishAIWorks Logo"
-    className="h-full w-full object-cover"
-  />
-</div>
-
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-violet-300">
-              Work With KrishAIWorks
+      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 sm:px-8">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+              Why KrishAIWorks
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-              Have an idea?
-              <br />
-              Let&apos;s build it.
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Focused on useful experiences.
             </h2>
 
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-zinc-500">
-              Looking for AI automation, website development, chatbots, lead
-              generation systems or a custom digital solution? Get in touch.
+            <p className="mt-5 max-w-xl text-sm leading-7 text-zinc-500">
+              Good tools should solve a clear problem without making the user
+              learn a complicated process first. KrishAIWorks focuses on
+              straightforward interfaces, practical use cases and tools that
+              can fit into everyday workflows.
             </p>
+          </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <ContactButton
-                href="https://wa.me/919015321788"
-                label="WhatsApp"
-                icon="💬"
-              />
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              {
+                title: "Simple interfaces",
+                text: "Clear workflows designed around the task.",
+              },
+              {
+                title: "Practical use cases",
+                text: "Tools built around problems people actually encounter.",
+              },
+              {
+                title: "Growing collection",
+                text: "AI and utility tools organized in one platform.",
+              },
+              {
+                title: "Digital solutions",
+                text: "Custom automation, chatbot and website work when needed.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.018] p-5 backdrop-blur-xl"
+              >
+                <div className="h-2 w-2 rounded-full bg-violet-400 shadow-lg shadow-violet-400/50" />
 
-              <ContactButton
-                href="https://instagram.com/krishaiworks"
-                label="Instagram"
-                icon="📸"
-              />
+                <h3 className="mt-4 text-sm font-semibold text-white">
+                  {item.title}
+                </h3>
 
-              <ContactButton
-                href="https://t.me/KrishAIworks"
-                label="Telegram"
-                icon="✈️"
-              />
-
-              <ContactButton
-                href="mailto:krishaiworks@gmail.com"
-                label="Email"
-                icon="✉️"
-              />
-            </div>
+                <p className="mt-2 text-xs leading-6 text-zinc-600">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -996,38 +880,286 @@ export default function Home() {
 
       <section
         id="faq"
-        className="relative z-10 mx-auto w-full max-w-3xl scroll-mt-8 px-5 py-24 sm:px-8"
+        className="relative z-10 mx-auto w-full max-w-4xl scroll-mt-8 px-5 py-24 sm:px-8"
       >
         <div className="text-center">
-          <div className="mx-auto inline-flex rounded-full border border-violet-400/10 bg-violet-500/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
             FAQ
+          </p>
+
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Frequently asked questions.
+          </h2>
+
+          <p className="mt-4 text-sm leading-7 text-zinc-500">
+            A few common questions about KrishAIWorks and its tools.
+          </p>
+        </div>
+
+        <div className="mt-10 space-y-3">
+          {faqs.map((faq) => (
+            <details
+              key={faq.question}
+              className="group rounded-2xl border border-white/[0.07] bg-white/[0.018] p-5 backdrop-blur-xl"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-white">
+                <span>{faq.question}</span>
+
+                <span className="text-lg text-zinc-600 transition group-open:rotate-45 group-open:text-violet-300">
+                  +
+                </span>
+              </summary>
+
+              <p className="mt-4 max-w-3xl text-sm leading-7 text-zinc-500">
+                {faq.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* HAVE A PROJECT IN MIND */}
+      {/* ========================================================= */}
+
+      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 sm:px-8">
+        <div className="relative overflow-hidden rounded-3xl border border-violet-400/[0.12] bg-gradient-to-br from-violet-500/[0.10] via-white/[0.02] to-cyan-500/[0.05] p-8 text-center shadow-2xl shadow-violet-950/20 backdrop-blur-xl sm:p-12">
+          <div className="pointer-events-none absolute left-1/2 top-[-160px] h-[350px] w-[600px] -translate-x-1/2 rounded-full bg-violet-500/[0.10] blur-[120px]" />
+
+          <div className="relative">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-300">
+              Have a project in mind?
+            </p>
+
+            <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              Need something built for your workflow?
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-400">
+              Whether you need an AI chatbot, an automation workflow, a
+              website or another digital solution, get in touch and describe
+              what you want to build.
+            </p>
+
+            <button
+              onClick={scrollToContact}
+              className="mt-8 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-3.5 text-sm font-semibold text-white shadow-xl shadow-violet-500/20 transition hover:-translate-y-0.5 hover:from-violet-400 hover:to-fuchsia-400 active:scale-95"
+            >
+              Contact Us →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* CONTACT */}
+      {/* ========================================================= */}
+
+      <section
+        id="contact"
+        className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-violet-400/10 bg-violet-500/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
+            Get In Touch
           </div>
 
           <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Frequently Asked Questions
+            Let&apos;s build something
+            <br />
+            <span className="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
+              useful together.
+            </span>
           </h2>
+
+          <p className="mt-5 text-sm leading-7 text-zinc-500">
+            Choose whichever way is most convenient for you. Whether you have
+            a project idea, need help with something or simply want to connect,
+            I&apos;d love to hear from you.
+          </p>
         </div>
 
-        <div className="mt-10 space-y-4">
-          <Faq
-            question="What is KrishAIWorks?"
-            answer="KrishAIWorks is a growing collection of AI-powered tools, productivity utilities and custom digital solutions."
-          />
+        <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* WHATSAPP */}
+          <a
+            href="https://wa.me/919015321788"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-emerald-400/20 hover:bg-emerald-500/[0.035]"
+          >
+            <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-emerald-500/[0.06] blur-3xl transition group-hover:bg-emerald-500/[0.12]" />
 
-          <Faq
-            question="Are the tools free to use?"
-            answer="The tools are designed to be simple and accessible. Availability and limits can vary between individual tools."
-          />
+            <div className="relative">
+              <div className="flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/10 bg-emerald-500/[0.07] text-xl">
+                  💬
+                </div>
 
-          <Faq
-            question="Can I request a custom tool?"
-            answer="Yes. You can contact KrishAIWorks for custom AI tools, websites, automations, chatbots and lead-generation systems."
-          />
+                <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-emerald-300">
+                  ↗
+                </span>
+              </div>
 
-          <Faq
-            question="Can you build an AI chatbot for my business?"
-            answer="Yes. Custom AI chatbot solutions can be designed around customer support, lead capture, FAQs and business workflows."
-          />
+              <h3 className="mt-6 text-base font-bold text-white">
+                WhatsApp
+              </h3>
+
+              <p className="mt-2 text-xs text-zinc-500">
+                @_krishbhardwaj
+              </p>
+
+              <p className="mt-4 text-xs leading-6 text-zinc-700">
+                Message directly on WhatsApp.
+              </p>
+            </div>
+          </a>
+
+          {/* INSTAGRAM */}
+          <a
+            href="https://instagram.com/krishaiworks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-pink-400/20 hover:bg-pink-500/[0.035]"
+          >
+            <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-pink-500/[0.06] blur-3xl transition group-hover:bg-pink-500/[0.12]" />
+
+            <div className="relative">
+              <div className="flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-pink-400/10 bg-pink-500/[0.07] text-xl">
+                  ◎
+                </div>
+
+                <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-pink-300">
+                  ↗
+                </span>
+              </div>
+
+              <h3 className="mt-6 text-base font-bold text-white">
+                Instagram
+              </h3>
+
+              <p className="mt-2 text-xs text-zinc-500">
+                @krishaiworks
+              </p>
+
+              <p className="mt-4 text-xs leading-6 text-zinc-700">
+                Connect with KrishAIWorks on Instagram.
+              </p>
+            </div>
+          </a>
+
+          {/* EMAIL */}
+          <a
+            href="mailto:krishaiworks@gmail.com"
+            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-violet-400/20 hover:bg-violet-500/[0.035]"
+          >
+            <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-violet-500/[0.06] blur-3xl transition group-hover:bg-violet-500/[0.12]" />
+
+            <div className="relative">
+              <div className="flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/10 bg-violet-500/[0.07] text-xl">
+                  ✉
+                </div>
+
+                <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-violet-300">
+                  →
+                </span>
+              </div>
+
+              <h3 className="mt-6 text-base font-bold text-white">
+                Email
+              </h3>
+
+              <p className="mt-2 break-all text-xs text-zinc-500">
+                krishaiworks@gmail.com
+              </p>
+
+              <p className="mt-4 text-xs leading-6 text-zinc-700">
+                Send a detailed project enquiry by email.
+              </p>
+            </div>
+          </a>
+
+          {/* TELEGRAM */}
+          <a
+            href="https://t.me/KrishAIworks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-cyan-400/20 hover:bg-cyan-500/[0.035]"
+          >
+            <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-cyan-500/[0.06] blur-3xl transition group-hover:bg-cyan-500/[0.12]" />
+
+            <div className="relative">
+              <div className="flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/10 bg-cyan-500/[0.07] text-xl">
+                  ✈
+                </div>
+
+                <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-cyan-300">
+                  ↗
+                </span>
+              </div>
+
+              <h3 className="mt-6 text-base font-bold text-white">
+                Telegram
+              </h3>
+
+              <p className="mt-2 text-xs text-zinc-500">
+                @KrishAIworks
+              </p>
+
+              <p className="mt-4 text-xs leading-6 text-zinc-700">
+                Reach KrishAIWorks through Telegram.
+              </p>
+            </div>
+          </a>
+
+          {/* AI CHAT / TYPEBOT */}
+          <a
+            href="https://typebot.co/krish-a-iworks-m4z1a0v"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-blue-400/20 hover:bg-blue-500/[0.035] sm:col-span-2 lg:col-span-2"
+          >
+            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-blue-500/[0.07] blur-3xl transition group-hover:bg-blue-500/[0.14]" />
+
+            <div className="relative flex flex-col sm:flex-row sm:items-center sm:gap-6">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-blue-400/10 bg-blue-500/[0.08] text-2xl">
+                🤖
+              </div>
+
+              <div className="mt-5 flex-1 sm:mt-0">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-base font-bold text-white">
+                      AI Chat
+                    </h3>
+
+                    <p className="mt-2 text-xs text-zinc-500">
+                      Chat with KrishAIWorks
+                    </p>
+                  </div>
+
+                  <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-blue-300">
+                    ↗
+                  </span>
+                </div>
+
+                <p className="mt-4 text-xs leading-6 text-zinc-700">
+                  Have a quick question? Open the KrishAIWorks AI assistant and
+                  get help instantly.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-white/[0.05] bg-white/[0.012] px-5 py-4 text-center">
+          <p className="text-[11px] leading-6 text-zinc-700">
+            Prefer chatting directly? WhatsApp and Telegram are the quickest
+            ways to reach out. For detailed project requirements, email is
+            recommended.
+          </p>
         </div>
       </section>
 
@@ -1035,38 +1167,31 @@ export default function Home() {
       {/* FINAL CTA */}
       {/* ========================================================= */}
 
-      <section className="relative z-10 mx-auto w-full max-w-6xl px-5 py-20 sm:px-8">
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.07] bg-white/[0.025] px-6 py-14 text-center shadow-2xl shadow-black/30 backdrop-blur-2xl sm:px-12">
-          <div className="pointer-events-none absolute left-1/2 top-[-170px] h-[350px] w-[550px] -translate-x-1/2 rounded-full bg-gradient-to-r from-fuchsia-500/[0.07] via-violet-500/[0.1] to-cyan-400/[0.07] blur-[120px]" />
+      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-24 sm:px-8">
+        <div className="rounded-3xl border border-white/[0.06] bg-white/[0.018] px-6 py-10 text-center backdrop-blur-xl sm:px-10">
+          <h2 className="text-2xl font-bold text-white sm:text-3xl">
+            Find a tool that helps you get more done.
+          </h2>
 
-          <div className="relative">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-300">
-              KrishAIWorks
-            </p>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-zinc-600">
+            Explore the commonly used tools or open the complete KrishAIWorks
+            directory.
+          </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Start building smarter.
-            </h2>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <button
+              onClick={scrollToTools}
+              className="rounded-xl bg-violet-500/10 px-6 py-3 text-sm font-semibold text-violet-300 transition hover:bg-violet-500/15"
+            >
+              Explore Tools
+            </button>
 
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-zinc-600">
-              Explore the tools or get in touch if you need something custom.
-            </p>
-
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <button
-                onClick={scrollToTools}
-                className="rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-7 py-3 text-sm font-semibold text-white shadow-xl shadow-violet-500/20 transition hover:-translate-y-0.5 hover:from-violet-400 hover:to-fuchsia-400 active:scale-95"
-              >
-                Explore Tools →
-              </button>
-
-              <button
-                onClick={scrollToContact}
-                className="rounded-xl border border-white/10 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-zinc-300 transition hover:bg-white/[0.07] hover:text-white active:scale-95"
-              >
-                Contact KrishAIWorks
-              </button>
-            </div>
+            <a
+              href="/tools"
+              className="rounded-xl border border-white/[0.07] bg-white/[0.025] px-6 py-3 text-sm font-semibold text-zinc-400 transition hover:bg-white/[0.05] hover:text-white"
+            >
+              View All Tools →
+            </a>
           </div>
         </div>
       </section>
@@ -1075,58 +1200,58 @@ export default function Home() {
       {/* FOOTER */}
       {/* ========================================================= */}
 
-      <footer className="relative z-10 border-t border-white/[0.06] px-5 py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-7 sm:flex-row">
-          <div className="flex items-center gap-3">
-            <img
-              src="/logo.png"
-              alt="KrishAIWorks Logo"
-              className="h-12 w-12 rounded-full border border-violet-400/20 object-cover shadow-lg shadow-violet-500/10"
-            />
+      <footer className="relative z-10 border-t border-white/[0.06]">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 py-10 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <div className="flex items-center gap-3">
+              <div className="relative h-9 w-9 overflow-hidden rounded-full border border-violet-400/15 bg-white/[0.04]">
+                <img
+                  src="/logo.png"
+                  alt="KrishAIWorks Logo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
 
-            <div>
-              <p className="font-semibold text-white">KrishAIWorks</p>
+              <div>
+                <p className="text-sm font-black text-white">
+                  Krish
+                  <span className="text-blue-400">AI</span>
+                  Works
+                </p>
 
-              <p className="mt-1 text-xs text-zinc-600">
-                AI Solutions That Work
-              </p>
+                <p className="text-[10px] text-zinc-700">
+                  AI Solutions That Work
+                </p>
+              </div>
             </div>
+
+            <p className="mt-4 max-w-md text-xs leading-6 text-zinc-700">
+              Practical AI tools, productivity solutions and digital systems
+              designed to make everyday work simpler.
+            </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-5 text-xs text-zinc-600">
+          <div className="flex flex-wrap gap-x-5 gap-y-3 text-xs text-zinc-600">
             <a
-              href="#tools"
+              href="/privacy-policy"
               className="transition hover:text-violet-300"
             >
-              Tools
+              Privacy Policy
             </a>
 
             <a
-              href="#services"
+              href="/terms-and-conditions"
               className="transition hover:text-violet-300"
             >
-              Services
+              Terms & Conditions
             </a>
 
-            <a
-              href="#contact"
+            <button
+              onClick={scrollToContact}
               className="transition hover:text-violet-300"
             >
               Contact
-            </a>
-            <a
-  href="/privacy-policy"
-  className="transition hover:text-violet-300"
->
-  Privacy Policy
-</a>
-
-<a
-  href="/terms-and-conditions"
-  className="transition hover:text-violet-300"
->
-  Terms & Conditions
-</a>
+            </button>
 
             <a
               href="https://instagram.com/krishaiworks"
@@ -1136,215 +1261,28 @@ export default function Home() {
             >
               Instagram
             </a>
+
+            <a
+              href="https://t.me/KrishAIworks"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-violet-300"
+            >
+              Telegram
+            </a>
           </div>
+        </div>
 
-          <div className="text-center sm:text-right">
-            <p className="text-xs text-zinc-600">© 2026 KrishAIWorks</p>
-
-            <p className="mt-1 text-xs text-zinc-700">
-              Built with AI.
+        <div className="border-t border-white/[0.04]">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-5 py-5 text-[10px] text-zinc-800 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            <p>
+              © {new Date().getFullYear()} KrishAIWorks. All rights reserved.
             </p>
+
+            <p>Built with purpose, not complexity.</p>
           </div>
         </div>
       </footer>
     </main>
-  );
-}
-
-/* ============================================================= */
-/* TOOL CARD */
-/* ============================================================= */
-
-function ToolCard({
-  tool,
-  featured = false,
-}: {
-  tool: Tool;
-  featured?: boolean;
-}) {
-  return (
-    <a
-      href={tool.href}
-      className={`group relative overflow-hidden rounded-3xl border bg-white/[0.02] p-6 shadow-2xl shadow-black/20 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:bg-white/[0.035] ${
-        featured
-          ? "border-violet-400/15 hover:border-violet-400/30"
-          : "border-white/[0.07] hover:border-violet-400/20"
-      }`}
-    >
-      {/* Hover glow */}
-      <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-violet-500/[0.08] blur-[70px] transition group-hover:bg-violet-500/[0.14]" />
-
-      <div className="relative">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/[0.07] bg-white/[0.035] text-xl shadow-lg shadow-black/20">
-            {tool.icon}
-          </div>
-
-          <span
-            className={`rounded-full border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider ${
-              tool.category === "AI"
-                ? "border-violet-400/10 bg-violet-500/[0.06] text-violet-300"
-                : "border-cyan-400/10 bg-cyan-500/[0.04] text-cyan-300"
-            }`}
-          >
-            {tool.category}
-          </span>
-        </div>
-
-        <h3 className="mt-6 text-lg font-bold tracking-tight text-white">
-          {tool.name}
-        </h3>
-
-        <p className="mt-2 min-h-[48px] text-sm leading-6 text-zinc-600">
-          {tool.description}
-        </p>
-
-        <div className="mt-6 flex items-center text-xs font-semibold text-zinc-500 transition group-hover:text-violet-300">
-          Try Tool
-          <span className="ml-2 transition group-hover:translate-x-1">
-            →
-          </span>
-        </div>
-      </div>
-    </a>
-  );
-}
-
-/* ============================================================= */
-/* SERVICE CARD */
-/* ============================================================= */
-
-function ServiceCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="group rounded-3xl border border-white/[0.07] bg-white/[0.02] p-6 shadow-2xl shadow-black/20 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-fuchsia-400/20 hover:bg-white/[0.035]">
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-fuchsia-400/10 bg-fuchsia-500/[0.05] text-xl">
-        {icon}
-      </div>
-
-      <h3 className="mt-6 text-lg font-bold text-white">{title}</h3>
-
-      <p className="mt-2 text-sm leading-7 text-zinc-600">
-        {description}
-      </p>
-    </div>
-  );
-}
-
-/* ============================================================= */
-/* MINI STAT */
-/* ============================================================= */
-
-function MiniStat({
-  icon,
-  title,
-  description,
-}: {
-  icon: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-white/[0.06] bg-black/30 p-5 backdrop-blur-xl">
-      <div className="text-xl">{icon}</div>
-
-      <h3 className="mt-4 text-sm font-bold text-white">{title}</h3>
-
-      <p className="mt-1 text-xs leading-6 text-zinc-600">
-        {description}
-      </p>
-    </div>
-  );
-}
-
-/* ============================================================= */
-/* STEP CARD */
-/* ============================================================= */
-
-function StepCard({
-  number,
-  title,
-  description,
-}: {
-  number: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="rounded-3xl border border-white/[0.07] bg-white/[0.02] p-6 backdrop-blur-2xl transition hover:border-violet-400/15 hover:bg-white/[0.03]">
-      <div className="flex items-center justify-between">
-        <span className="text-3xl font-black tracking-tight text-white/[0.08]">
-          {number}
-        </span>
-
-        <div className="h-px w-16 bg-gradient-to-r from-violet-400/30 to-transparent" />
-      </div>
-
-      <h3 className="mt-8 text-lg font-bold text-white">{title}</h3>
-
-      <p className="mt-2 text-sm leading-7 text-zinc-600">
-        {description}
-      </p>
-    </div>
-  );
-}
-
-/* ============================================================= */
-/* CONTACT BUTTON */
-/* ============================================================= */
-
-function ContactButton({
-  href,
-  label,
-  icon,
-}: {
-  href: string;
-  label: string;
-  icon: string;
-}) {
-  return (
-    <a
-      href={href}
-      target={href.startsWith("mailto:") ? undefined : "_blank"}
-      rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-      className="rounded-xl border border-white/[0.08] bg-white/[0.035] px-5 py-3 text-sm font-semibold text-zinc-300 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:border-violet-400/20 hover:bg-white/[0.06] hover:text-white active:scale-95"
-    >
-      {icon} {label}
-    </a>
-  );
-}
-
-/* ============================================================= */
-/* FAQ */
-/* ============================================================= */
-
-function Faq({
-  question,
-  answer,
-}: {
-  question: string;
-  answer: string;
-}) {
-  return (
-    <details className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 backdrop-blur-xl">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-sm font-semibold text-white">
-        {question}
-
-        <span className="text-lg text-zinc-600 transition group-open:rotate-45">
-          +
-        </span>
-      </summary>
-
-      <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-600">
-        {answer}
-      </p>
-    </details>
   );
 }
