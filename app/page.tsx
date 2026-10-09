@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Bubble } from "@typebot.io/nextjs";
 
 type Tool = {
   name: string;
@@ -10,31 +9,6 @@ type Tool = {
   icon: string;
   href: string;
 };
-
-
-<Bubble
-  typebot="krish-a-iworks-m4z1a0v"
-  previewMessage={{
-    message: "Hey! 👋 Need help with KrishAIWorks?",
-    autoShowDelay: 5000,
-    avatarUrl: "/logo.png",
-  }}
-  theme={{
-    button: {
-      backgroundColor: "#2563EB",
-      iconColor: "#FFFFFF",
-    },
-
-    previewMessage: {
-      backgroundColor: "#0A0A0F",
-      textColor: "#FFFFFF",
-    },
-
-    chatWindow: {
-      backgroundColor: "#FFFFFF",
-    },
-  }}
-/>
 
 const commonlyUsedTools: Tool[] = [
   {
@@ -151,7 +125,54 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [showCommonlyUsed, setShowCommonlyUsed] = useState(true);
 
+  /* ========================================================= */
+  /* AI CHAT / TYPEBOT */
+  /* ========================================================= */
 
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.type = "module";
+
+    script.textContent = `
+      import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js";
+
+      Typebot.initBubble({
+        typebot: "krish-a-iworks-m4z1a0v",
+
+        previewMessage: {
+          message: "Hey! 👋 Need help with KrishAIWorks?",
+          autoShowDelay: 5000,
+          avatarUrl: "/logo.png",
+        },
+
+        theme: {
+          button: {
+            backgroundColor: "#2563EB",
+            iconColor: "#FFFFFF",
+          },
+
+          previewMessage: {
+            backgroundColor: "#0A0A0F",
+            textColor: "#FFFFFF",
+          },
+
+          chatWindow: {
+            backgroundColor: "#FFFFFF",
+            maxWidth: "420px",
+            maxHeight: "600px",
+            borderRadius: "20px",
+          },
+        },
+      });
+    `;
+
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   const filteredTools = useMemo(() => {
     const query = search.toLowerCase().trim();
