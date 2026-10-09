@@ -4,8 +4,8 @@ const isDev = process.env.NODE_ENV === "development";
 
 const csp =
   "default-src 'self'; " +
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com; ` +
-  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com; " +
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; ` +
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://typebot.co https://*.typebot.co https://typebot.io https://*.typebot.io; " +
   "img-src 'self' data: https:; " +
   "style-src 'self' 'unsafe-inline'; " +
   "font-src 'self' data: https:; " +
