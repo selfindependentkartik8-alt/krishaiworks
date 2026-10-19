@@ -10,11 +10,11 @@ type Tool = {
   href: string;
 };
 
-const commonlyUsedTools: Tool[] = [
+const tools: Tool[] = [
   {
     name: "PDF AI Summarizer",
     description:
-      "Turn lengthy PDF documents into clear, concise summaries and find the important information faster.",
+      "Summarize lengthy PDF documents, identify important information and understand documents faster.",
     category: "AI",
     icon: "📑",
     href: "https://pdfaisummarizer.krishaiworks.com/",
@@ -22,7 +22,7 @@ const commonlyUsedTools: Tool[] = [
   {
     name: "Smart Note AI",
     description:
-      "Create clearer, more organized notes and turn information into easier-to-understand content.",
+      "Turn notes and study material into clearer, more organized and easier-to-understand information.",
     category: "AI",
     icon: "🧠",
     href: "https://smartnotes.krishaiworks.com",
@@ -30,7 +30,7 @@ const commonlyUsedTools: Tool[] = [
   {
     name: "YouTube Video AI Summarizer",
     description:
-      "Get the key points from long YouTube videos without spending unnecessary time watching everything.",
+      "Extract the important ideas from longer YouTube videos when you need the key information quickly.",
     category: "AI",
     icon: "▶️",
     href: "https://youtubeaisummarizer.krishaiworks.com",
@@ -38,7 +38,7 @@ const commonlyUsedTools: Tool[] = [
   {
     name: "AI Email Writer",
     description:
-      "Create clear, professional emails faster with AI assistance for everyday communication.",
+      "Create clearer and more professional emails for everyday communication, work and formal situations.",
     category: "AI",
     icon: "✉️",
     href: "https://aiemailwriter.krishaiworks.com",
@@ -46,7 +46,7 @@ const commonlyUsedTools: Tool[] = [
   {
     name: "AI Resume Generator",
     description:
-      "Create a polished resume and present your skills, experience and background more clearly.",
+      "Create a structured resume that presents your skills, education and experience in a professional format.",
     category: "AI",
     icon: "📄",
     href: "https://airesumegenerator.krishaiworks.com",
@@ -54,11 +54,204 @@ const commonlyUsedTools: Tool[] = [
   {
     name: "AI Study Assistant",
     description:
-      "Understand study topics, organize learning material and get help with everyday academic tasks.",
+      "Get help understanding study topics, revising concepts and organizing learning material.",
     category: "AI",
     icon: "🎓",
     href: "https://aistudyassistant.krishaiworks.com",
   },
+  {
+    name: "AI Resume Analyzer",
+    description:
+      "Review a resume for common weaknesses, clarity issues and areas that could be improved.",
+    category: "AI",
+    icon: "🔎",
+    href: "https://airesumeanalyzer.krishaiworks.com",
+  },
+  {
+    name: "AI Cover Letter Generator",
+    description:
+      "Create tailored cover letters for different job applications and professional opportunities.",
+    category: "AI",
+    icon: "📨",
+    href: "https://aicoverlettergenerator.krishaiworks.com",
+  },
+  {
+    name: "AI YouTube Title & Description Generator",
+    description:
+      "Generate title and description ideas for YouTube videos and improve the presentation of your content.",
+    category: "AI",
+    icon: "🎬",
+    href: "https://aiyoutubetitledescriptiongenerator.krishaiworks.com",
+  },
+  {
+    name: "AI Instagram Caption Generator",
+    description:
+      "Create caption ideas for Instagram posts, reels and different content styles.",
+    category: "AI",
+    icon: "📸",
+    href: "https://aiinstagramcaptiongenerator.krishaiworks.com",
+  },
+  {
+    name: "AI LinkedIn Post Generator",
+    description:
+      "Create professional LinkedIn post ideas for sharing knowledge, updates and career content.",
+    category: "AI",
+    icon: "💼",
+    href: "https://ailinkedinpostgenerator.krishaiworks.com",
+  },
+  {
+    name: "AI Blog Generator",
+    description:
+      "Create structured first drafts and content ideas when starting a blog or long-form article.",
+    category: "AI",
+    icon: "✍️",
+    href: "https://aibloggenerator.krishaiworks.com",
+  },
+  {
+    name: "AI Subtitle Generator",
+    description:
+      "Create subtitles for video content and make spoken content easier to follow.",
+    category: "AI",
+    icon: "💬",
+    href: "https://aisubtitlegenerator.krishaiworks.com",
+  },
+  {
+    name: "AI Email Reply Generator",
+    description:
+      "Generate useful reply ideas for incoming emails and everyday professional communication.",
+    category: "AI",
+    icon: "↩️",
+    href: "https://aiemailreplyngenerator.krishaiworks.com",
+  },
+  {
+    name: "AI Text Humanizer",
+    description:
+      "Rewrite text to make it sound more natural, readable and suitable for human communication.",
+    category: "AI",
+    icon: "🧠",
+    href: "https://aitexthumanizer.krishaiworks.com",
+  },
+  {
+    name: "AI Grammar & Writing Fixer",
+    description:
+      "Improve grammar, sentence clarity and overall writing quality.",
+    category: "AI",
+    icon: "✓",
+    href: "https://aigrammarwritingfixer.krishaiworks.com",
+  },
+  {
+    name: "Image Resizer & Compressor",
+    description:
+      "Resize images and reduce their file size when preparing images for websites or sharing.",
+    category: "Utility",
+    icon: "🖼️",
+    href: "https://imageresizercompressor.krishaiworks.com",
+  },
+  {
+    name: "PDF Compressor",
+    description:
+      "Reduce PDF file size when you need a smaller document for uploading, sharing or storage.",
+    category: "Utility",
+    icon: "🗜️",
+    href: "https://pdfcompressor.krishaiworks.com",
+  },
+  {
+    name: "PDF Merger & Splitter",
+    description:
+      "Combine multiple PDF files or split a document into smaller sections.",
+    category: "Utility",
+    icon: "📚",
+    href: "https://pdfmergersplitter.krishaiworks.com",
+  },
+  {
+    name: "Image to PDF",
+    description:
+      "Convert images into PDF documents for easier sharing, submission and organization.",
+    category: "Utility",
+    icon: "📷",
+    href: "https://imagetopdfconverter.krishaiworks.com",
+  },
+  {
+    name: "QR Code Generator & Scanner",
+    description:
+      "Create QR codes and scan QR information for everyday digital use.",
+    category: "Utility",
+    icon: "▦",
+    href: "https://qrcodegeneratorscanner.krishaiworks.com",
+  },
+  {
+    name: "Password Generator",
+    description:
+      "Generate strong random passwords when creating accounts or updating credentials.",
+    category: "Utility",
+    icon: "🔐",
+    href: "https://passwordgenerator.krishaiworks.com",
+  },
+  {
+    name: "ZIP File Creator",
+    description:
+      "Package multiple files into a ZIP archive for easier storage and sharing.",
+    category: "Utility",
+    icon: "🗃️",
+    href: "https://zipfilecreator.krishaiworks.com",
+  },
+  {
+    name: "JSON Formatter & Validator",
+    description:
+      "Format JSON into a readable structure and identify common JSON formatting problems.",
+    category: "Utility",
+    icon: "{ }",
+    href: "https://jsonformattervalidator.krishaiworks.com",
+  },
+  {
+    name: "Unit Converter",
+    description:
+      "Convert between common measurement units quickly without installing software.",
+    category: "Utility",
+    icon: "↔️",
+    href: "https://unitconverter.krishaiworks.com",
+  },
+  {
+    name: "Base64 Encoder & Decoder",
+    description:
+      "Encode text into Base64 or decode Base64 data when working with common technical workflows.",
+    category: "Utility",
+    icon: "64",
+    href: "https://base64encoderdecoder.krishaiworks.com",
+  },
+  {
+    name: "Word Counter & Reading Time",
+    description:
+      "Count words and characters and estimate reading time for written content.",
+    category: "Utility",
+    icon: "🔢",
+    href: "https://wordcounterreadingtime.krishaiworks.com",
+  },
+  {
+    name: "Markdown ↔ HTML Converter",
+    description:
+      "Convert Markdown content to HTML and work between the two formats more easily.",
+    category: "Utility",
+    icon: "</>",
+    href: "https://markdownhtmlconverter.krishaiworks.com",
+  },
+  {
+    name: "Timestamp Converter",
+    description:
+      "Convert Unix timestamps and human-readable dates when working with time-based data.",
+    category: "Utility",
+    icon: "🕐",
+    href: "https://timestampconverter.krishaiworks.com",
+  },
+];
+
+const commonlyUsedNames = [
+  "PDF AI Summarizer",
+  "Smart Note AI",
+  "YouTube Video AI Summarizer",
+  "AI Email Writer",
+  "AI Resume Generator",
+  "AI Study Assistant",
 ];
 
 const services = [
@@ -72,19 +265,19 @@ const services = [
     icon: "💬",
     title: "AI Chatbots",
     description:
-      "Build useful chatbots for websites, customer support, FAQs, lead capture and everyday business workflows.",
+      "Build customer-support, FAQ and lead-generation chatbots around a specific business workflow.",
   },
   {
     icon: "🌐",
     title: "Website Building",
     description:
-      "Create modern, responsive websites designed around a clear purpose, useful user experience and business goals.",
+      "Create modern responsive websites and useful web applications around a clear purpose.",
   },
   {
     icon: "📈",
     title: "Lead Generation",
     description:
-      "Build practical systems that capture, organize and automate potential customer leads.",
+      "Build practical systems for collecting, organizing and notifying businesses about new leads.",
   },
 ];
 
@@ -92,42 +285,81 @@ const faqs = [
   {
     question: "What is KrishAIWorks?",
     answer:
-      "KrishAIWorks is a collection of practical AI-powered and productivity-focused tools along with digital solutions for individuals and businesses. The platform is designed to make common tasks simpler and more accessible.",
+      "KrishAIWorks is a collection of practical AI-powered, productivity and utility tools along with custom digital solutions. The goal is to make common digital tasks easier through focused tools rather than complicated software.",
+  },
+  {
+    question: "Who can use KrishAIWorks?",
+    answer:
+      "The tools are designed for a broad range of users including students, job seekers, creators, professionals and small businesses. Different tools solve different problems, so users can choose only what is relevant to their current task.",
   },
   {
     question: "Are the tools useful for students?",
     answer:
-      "Yes. Several tools are designed around common student workflows, including studying, organizing notes, summarizing information and working with educational content.",
+      "Yes. Students can use tools such as the PDF AI Summarizer, Smart Note AI, AI Study Assistant, Word Counter and other utilities for studying, organizing information and preparing written work.",
   },
   {
-    question: "Can professionals use KrishAIWorks?",
+    question: "Can professionals use these tools?",
     answer:
-      "Yes. Tools such as the AI Email Writer and AI Resume Generator can help with professional communication, job applications and everyday productivity.",
+      "Yes. Tools such as AI Email Writer, AI Resume Generator, AI Resume Analyzer, AI Cover Letter Generator and AI LinkedIn Post Generator are designed around common professional and career-related tasks.",
   },
   {
-    question: "Do I need technical knowledge to use the tools?",
+    question: "Do I need technical knowledge?",
     answer:
-      "No. The tools are designed around simple interfaces so users can focus on the task rather than dealing with complicated technical workflows.",
+      "No. The tools are designed around simple browser-based interfaces so that users can focus on the task instead of learning complicated technical workflows.",
   },
   {
-    question: "Is KrishAIWorks only for AI tools?",
+    question: "Are the utility tools only for developers?",
     answer:
-      "No. KrishAIWorks includes AI-powered tools as well as practical utility and productivity tools. The complete collection is available through the All Tools directory.",
+      "No. Utilities such as PDF Compressor, Image to PDF, QR Code Generator, Password Generator, Unit Converter and Word Counter can be useful for everyday personal, academic and professional tasks.",
   },
   {
-    question: "Can I request a custom AI solution?",
+    question: "Can I use AI-generated results without checking them?",
     answer:
-      "Yes. KrishAIWorks also works on AI chatbots, automations, websites and lead-generation systems. You can get in touch through the contact section to discuss a project.",
+      "AI can make mistakes or produce incomplete information. Generated content should be reviewed by the user, especially when it involves academic work, professional documents, important decisions or factual information.",
+  },
+  {
+    question: "Does KrishAIWorks provide custom AI solutions?",
+    answer:
+      "Yes. KrishAIWorks also works on custom AI chatbots, automation systems, websites, lead-generation workflows and other digital products based on a specific requirement.",
   },
 ];
+
+function ToolCard({ tool }: { tool: Tool }) {
+  return (
+    <a
+      href={tool.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col rounded-2xl border border-white/[0.06] bg-black/25 p-5 transition duration-300 hover:-translate-y-1 hover:border-violet-400/20 hover:bg-white/[0.035] hover:shadow-xl hover:shadow-violet-500/[0.06]"
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.035] text-xl transition group-hover:border-violet-400/20 group-hover:bg-violet-500/[0.08]">
+          {tool.icon}
+        </div>
+
+        <span className="text-zinc-700 transition group-hover:text-violet-300">
+          ↗
+        </span>
+      </div>
+
+      <h3 className="mt-5 text-sm font-semibold text-white transition group-hover:text-violet-200">
+        {tool.name}
+      </h3>
+
+      <p className="mt-2 flex-1 text-xs leading-6 text-zinc-500">
+        {tool.description}
+      </p>
+
+      <div className="mt-5 text-xs font-medium text-violet-400 transition group-hover:text-violet-300">
+        Open tool →
+      </div>
+    </a>
+  );
+}
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const [showCommonlyUsed, setShowCommonlyUsed] = useState(true);
-
-  /* ========================================================= */
-  /* AI CHAT / TYPEBOT */
-  /* ========================================================= */
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -174,6 +406,10 @@ export default function Home() {
     };
   }, []);
 
+  const commonlyUsedTools = tools.filter((tool) =>
+    commonlyUsedNames.includes(tool.name),
+  );
+
   const filteredTools = useMemo(() => {
     const query = search.toLowerCase().trim();
 
@@ -187,24 +423,16 @@ export default function Home() {
         tool.description.toLowerCase().includes(query) ||
         tool.category.toLowerCase().includes(query),
     );
-  }, [search]);
+  }, [search, commonlyUsedTools]);
 
-  const scrollToTools = () => {
-    document
-      .getElementById("tools")
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
+  const aiTools = tools.filter((tool) => tool.category === "AI");
+  const utilityTools = tools.filter((tool) => tool.category === "Utility");
 
-  const scrollToContact = () => {
-    document
-      .getElementById("contact")
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToAbout = () => {
-    document
-      .getElementById("about")
-      ?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -285,7 +513,7 @@ export default function Home() {
             </a>
 
             <button
-              onClick={scrollToContact}
+              onClick={() => scrollTo("contact")}
               className="ml-2 rounded-xl border border-violet-400/20 bg-violet-500/10 px-5 py-2 text-sm font-semibold text-violet-200 shadow-lg shadow-violet-500/10 transition hover:-translate-y-0.5 hover:bg-violet-500/15 active:scale-95"
             >
               Contact
@@ -293,7 +521,7 @@ export default function Home() {
           </div>
 
           <button
-            onClick={scrollToContact}
+            onClick={() => scrollTo("contact")}
             className="rounded-xl border border-violet-400/20 bg-violet-500/10 px-4 py-2 text-xs font-semibold text-violet-200 transition hover:bg-violet-500/15 md:hidden"
           >
             Contact
@@ -321,28 +549,27 @@ export default function Home() {
         <h1 className="mt-7 max-w-5xl text-4xl font-extrabold leading-[1.03] tracking-[-0.04em] sm:text-6xl lg:text-8xl">
           Build faster.
           <br />
-
           <span className="bg-gradient-to-r from-fuchsia-300 via-violet-300 to-cyan-300 bg-clip-text text-transparent">
             Work smarter.
           </span>
         </h1>
 
-        <p className="mt-7 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
-          Explore practical AI tools and digital solutions designed to help
-          students, creators, professionals and businesses simplify everyday
-          tasks, work more efficiently and get more done.
+        <p className="mt-7 max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
+          Explore practical AI tools, productivity utilities and digital
+          solutions designed to help students, creators, professionals and
+          businesses simplify everyday work.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <button
-            onClick={scrollToTools}
+            onClick={() => scrollTo("tools")}
             className="h-12 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-7 text-sm font-semibold text-white shadow-xl shadow-violet-500/20 transition hover:-translate-y-0.5 hover:from-violet-400 hover:to-fuchsia-400 active:scale-95"
           >
             Explore Tools →
           </button>
 
           <button
-            onClick={scrollToContact}
+            onClick={() => scrollTo("contact")}
             className="h-12 rounded-xl border border-white/10 bg-white/[0.04] px-7 text-sm font-semibold text-zinc-300 backdrop-blur-xl transition hover:bg-white/[0.07] hover:text-white active:scale-95"
           >
             Need Something Built?
@@ -350,26 +577,43 @@ export default function Home() {
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-2.5">
-          <span className="rounded-full border border-white/[0.06] bg-white/[0.025] px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl">
-            ⚡ Practical
-          </span>
+          {[
+            "⚡ Practical",
+            "🔒 Privacy Friendly",
+            "📱 Responsive",
+            "✨ AI Powered",
+          ].map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-white/[0.06] bg-white/[0.025] px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
 
-          <span className="rounded-full border border-white/[0.06] bg-white/[0.025] px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl">
-            🔒 Privacy Friendly
-          </span>
-
-          <span className="rounded-full border border-white/[0.06] bg-white/[0.025] px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl">
-            📱 Responsive
-          </span>
-
-          <span className="rounded-full border border-white/[0.06] bg-white/[0.025] px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl">
-            ✨ AI Powered
-          </span>
+        <div className="mt-10 grid w-full max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+          {[
+            ["29", "Tools"],
+            ["16", "AI Tools"],
+            ["13", "Utility Tools"],
+            ["Browser", "First"],
+          ].map(([number, label]) => (
+            <div
+              key={label}
+              className="rounded-2xl border border-white/[0.07] bg-white/[0.025] px-4 py-5 backdrop-blur-xl"
+            >
+              <p className="text-xl font-bold text-white">{number}</p>
+              <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-zinc-600">
+                {label}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ========================================================= */}
-      {/* ABOUT KRISHAIWORKS */}
+      {/* ABOUT */}
       {/* ========================================================= */}
 
       <section
@@ -388,25 +632,26 @@ export default function Home() {
 
             <div className="mt-6 space-y-5 text-sm leading-7 text-zinc-400">
               <p>
-                KrishAIWorks is a collection of practical AI-powered,
-                productivity and digital tools created to make common tasks
-                simpler. Instead of requiring users to learn complicated
-                software or workflows, the platform focuses on straightforward
-                tools that can be used for specific everyday needs.
+                KrishAIWorks is a growing collection of practical AI-powered,
+                productivity and utility tools created around real everyday
+                tasks. The focus is on making useful technology easier to
+                access without forcing users through complicated workflows.
               </p>
 
               <p>
                 The platform brings together tools for students, creators,
-                professionals, job seekers and businesses. These tools can help
-                with tasks such as understanding long documents, organizing
-                information, writing emails, preparing resumes and working with
-                educational content.
+                professionals, job seekers and businesses. Depending on the
+                task, a user can summarize a document, organize information,
+                write an email, prepare a resume, work with content or use a
+                simple browser utility.
               </p>
 
               <p>
-                Alongside its online tools, KrishAIWorks also works on custom
-                digital solutions including AI chatbots, automation systems,
-                websites and lead-generation workflows.
+                KrishAIWorks also explores custom digital solutions such as AI
+                chatbots, business automations, websites and lead-generation
+                systems. These projects are approached around the actual
+                workflow or problem rather than adding technology simply for
+                the sake of it.
               </p>
             </div>
           </div>
@@ -423,11 +668,13 @@ export default function Home() {
             <div className="mt-6 space-y-4">
               {[
                 "Summarize documents and long-form content",
-                "Organize notes and information",
+                "Organize notes and study information",
                 "Write and improve everyday communication",
-                "Create professional resumes",
-                "Get help with studying and learning",
-                "Explore useful productivity utilities",
+                "Create and review professional resumes",
+                "Get help with studying and revision",
+                "Create social and professional content",
+                "Work with PDFs, images, text and data",
+                "Use small utilities for everyday digital tasks",
               ].map((item) => (
                 <div
                   key={item}
@@ -438,19 +685,12 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
-            <button
-              onClick={scrollToTools}
-              className="mt-8 rounded-xl border border-violet-400/15 bg-violet-500/[0.08] px-5 py-3 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/[0.13]"
-            >
-              Explore the tools →
-            </button>
           </div>
         </div>
       </section>
 
       {/* ========================================================= */}
-      {/* EXPLORE TOOLS */}
+      {/* TOOLS */}
       {/* ========================================================= */}
 
       <section
@@ -471,14 +711,14 @@ export default function Home() {
           </h2>
 
           <p className="mt-5 text-sm leading-7 text-zinc-500">
-            Search the commonly used tools below or open the complete tool
-            directory to explore everything available on KrishAIWorks.
+            Choose an AI tool for a specific task, use a browser utility for a
+            quick operation, or explore the complete tool directory.
           </p>
         </div>
 
         {/* SEARCH */}
         <div className="mx-auto mt-10 max-w-3xl">
-          <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-black/45 shadow-2xl shadow-violet-950/10 backdrop-blur-2xl transition focus-within:border-violet-400/25 focus-within:shadow-violet-500/[0.08]">
+          <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-black/45 shadow-2xl shadow-violet-950/10 backdrop-blur-2xl transition focus-within:border-violet-400/25">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-violet-500/[0.035] via-transparent to-cyan-500/[0.035]" />
 
             <div className="relative flex items-center">
@@ -517,13 +757,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* TWO OPTIONS ONLY */}
-
         <div className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
-          <button
-            onClick={() => {
-              window.location.href = "/tools";
-            }}
+          <a
+            href="/tools"
             className="group rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5 text-left transition hover:-translate-y-0.5 hover:border-violet-400/20 hover:bg-violet-500/[0.05] hover:shadow-xl hover:shadow-violet-500/[0.05]"
           >
             <div className="flex items-center justify-between">
@@ -541,17 +777,17 @@ export default function Home() {
             </h3>
 
             <p className="mt-2 text-xs leading-6 text-zinc-500">
-              Explore the complete KrishAIWorks tool collection, including AI
-              tools and practical utilities.
+              Explore the complete KrishAIWorks collection of AI tools and
+              practical utilities.
             </p>
-          </button>
+          </a>
 
           <button
             onClick={() => setShowCommonlyUsed(true)}
             className={`group rounded-2xl border p-5 text-left transition hover:-translate-y-0.5 ${
               showCommonlyUsed
                 ? "border-violet-400/20 bg-violet-500/[0.06] shadow-xl shadow-violet-500/[0.05]"
-                : "border-white/[0.07] bg-white/[0.025] hover:border-violet-400/20 hover:bg-violet-500/[0.05]"
+                : "border-white/[0.07] bg-white/[0.025]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -569,13 +805,10 @@ export default function Home() {
             </h3>
 
             <p className="mt-2 text-xs leading-6 text-zinc-500">
-              Quickly access six selected tools that are useful for common
-              everyday tasks.
+              Quickly access a selection of tools for common everyday tasks.
             </p>
           </button>
         </div>
-
-        {/* COMMONLY USED TOOLS */}
 
         {showCommonlyUsed && (
           <div className="mt-10 rounded-3xl border border-white/[0.07] bg-white/[0.018] p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-7">
@@ -607,35 +840,7 @@ export default function Home() {
             {filteredTools.length > 0 ? (
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {filteredTools.map((tool) => (
-                  <a
-                    key={tool.name}
-                    href={tool.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex flex-col rounded-2xl border border-white/[0.06] bg-black/25 p-5 transition duration-300 hover:-translate-y-1 hover:border-violet-400/20 hover:bg-white/[0.035] hover:shadow-xl hover:shadow-violet-500/[0.06]"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.035] text-xl transition group-hover:border-violet-400/20 group-hover:bg-violet-500/[0.08]">
-                        {tool.icon}
-                      </div>
-
-                      <span className="text-zinc-700 transition group-hover:text-violet-300">
-                        ↗
-                      </span>
-                    </div>
-
-                    <h4 className="mt-5 text-sm font-semibold text-white transition group-hover:text-violet-200">
-                      {tool.name}
-                    </h4>
-
-                    <p className="mt-2 flex-1 text-xs leading-6 text-zinc-500">
-                      {tool.description}
-                    </p>
-
-                    <div className="mt-5 text-xs font-medium text-violet-400 transition group-hover:text-violet-300">
-                      Open tool →
-                    </div>
-                  </a>
+                  <ToolCard key={tool.name} tool={tool} />
                 ))}
               </div>
             ) : (
@@ -663,62 +868,284 @@ export default function Home() {
       </section>
 
       {/* ========================================================= */}
-      {/* WHAT KRISHAIWORKS IS FOR */}
+      {/* AI TOOLS EXPLAINED */}
       {/* ========================================================= */}
 
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 sm:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
-            Built for real workflows
+      <section className="relative z-10 border-y border-white/[0.06] bg-white/[0.012]">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+              AI Tools
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              AI tools built around specific tasks.
+            </h2>
+
+            <p className="mt-5 text-sm leading-7 text-zinc-500 sm:text-base">
+              AI becomes more useful when it is connected to a clear task.
+              Instead of trying to use one general-purpose tool for everything,
+              KrishAIWorks provides focused tools for writing, studying,
+              careers and content workflows.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                icon: "🎓",
+                title: "Study & Learning",
+                text: "Students can work with notes, PDFs and study material, summarize information and get assistance while revising difficult topics.",
+              },
+              {
+                icon: "💼",
+                title: "Career & Jobs",
+                text: "Job seekers can prepare resumes, analyze existing resumes, create cover letters and improve professional communication.",
+              },
+              {
+                icon: "✍️",
+                title: "Writing & Communication",
+                text: "Use focused tools for emails, replies, grammar improvements and other everyday writing tasks.",
+              },
+              {
+                icon: "🎥",
+                title: "Creators",
+                text: "Creators can generate content ideas, captions, YouTube titles, descriptions and subtitles as starting points for their workflow.",
+              },
+              {
+                icon: "📚",
+                title: "Information",
+                text: "Long documents and other information-heavy material can be easier to understand when the right summarization workflow is used.",
+              },
+              {
+                icon: "🧩",
+                title: "Everyday Productivity",
+                text: "Small focused tools can remove repetitive steps and help users spend less time on simple digital operations.",
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="rounded-3xl border border-white/[0.07] bg-black/25 p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-violet-400/15"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/10 bg-violet-500/[0.07] text-xl">
+                  {item.icon}
+                </div>
+
+                <h3 className="mt-5 text-lg font-bold text-white">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-zinc-500">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* UTILITY TOOLS */}
+      {/* ========================================================= */}
+
+      <section className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-8">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+            Utility Tools
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Useful technology for different kinds of users.
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            Small utilities for real digital tasks.
           </h2>
 
-          <p className="mt-4 text-sm leading-7 text-zinc-500">
-            KrishAIWorks focuses on practical use cases rather than adding
-            technology for the sake of technology.
+          <p className="mt-5 text-sm leading-7 text-zinc-500 sm:text-base">
+            Not every problem needs AI. Sometimes the best solution is a
+            straightforward utility that performs one job quickly. The
+            KrishAIWorks utility collection covers files, images, text, data,
+            conversions and other common digital operations.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {utilityTools.map((tool) => (
+            <ToolCard key={tool.name} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* HOW TO CHOOSE */}
+      {/* ========================================================= */}
+
+      <section
+        id="how"
+        className="relative z-10 border-y border-white/[0.06] bg-white/[0.012]"
+      >
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+              How It Works
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              Start with the task, not the technology.
+            </h2>
+
+            <p className="mt-5 text-sm leading-7 text-zinc-500 sm:text-base">
+              The easiest way to use the collection is to identify what you
+              actually need to accomplish and then choose the smallest tool
+              that solves that problem.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {[
+              {
+                number: "01",
+                title: "Identify the task",
+                text: "Decide what you are trying to accomplish. For example, summarize a PDF, improve an email, create a resume or convert a file.",
+              },
+              {
+                number: "02",
+                title: "Choose the right tool",
+                text: "Use the search above or open the complete tools directory. Focused tools are easier to use when their purpose matches your task.",
+              },
+              {
+                number: "03",
+                title: "Review the result",
+                text: "Use the output as a starting point and check important information before relying on it for academic, professional or business decisions.",
+              },
+            ].map((step) => (
+              <article
+                key={step.number}
+                className="rounded-3xl border border-white/[0.07] bg-black/25 p-7"
+              >
+                <span className="text-xs font-bold tracking-[0.25em] text-violet-400">
+                  {step.number}
+                </span>
+
+                <h3 className="mt-5 text-xl font-bold text-white">
+                  {step.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-zinc-500">
+                  {step.text}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-8 max-w-4xl rounded-3xl border border-amber-400/10 bg-amber-400/[0.025] p-6">
+            <p className="text-sm leading-7 text-zinc-500">
+              <span className="font-semibold text-amber-300">
+                Important:
+              </span>{" "}
+              AI-generated information can contain errors, omissions or
+              incorrect assumptions. Always review generated results before
+              using them for important academic, professional, financial,
+              legal, medical or business decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* USE CASES */}
+      {/* ========================================================= */}
+
+      <section className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-8">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+            Everyday Use Cases
+          </p>
+
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            Built for different kinds of work.
+          </h2>
+
+          <p className="mt-5 text-sm leading-7 text-zinc-500 sm:text-base">
+            The collection is intentionally broad because people use digital
+            tools differently. A student may need help understanding a PDF,
+            while a creator may need a caption or a professional may need to
+            prepare a resume.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {[
             {
               icon: "🎓",
-              title: "Students",
-              text: "Study, summarize, organize information and make learning workflows easier.",
-            },
-            {
-              icon: "🎨",
-              title: "Creators",
-              text: "Save time on writing, research and other repetitive content-related tasks.",
+              title: "For Students",
+              text: "Use study-focused tools to organize notes, understand long documents, revise information and simplify repetitive academic tasks. The tools are designed to assist learning, not replace the student's own understanding.",
+              links: [
+                "Smart Note AI",
+                "PDF AI Summarizer",
+                "AI Study Assistant",
+                "Word Counter & Reading Time",
+              ],
             },
             {
               icon: "💼",
-              title: "Professionals",
-              text: "Improve everyday communication, documents and productivity workflows.",
+              title: "For Job Seekers",
+              text: "Preparing an application often requires several separate tasks. Resume, cover-letter and professional-writing tools can help create a stronger starting point that the user can then personalize.",
+              links: [
+                "AI Resume Generator",
+                "AI Resume Analyzer",
+                "AI Cover Letter Generator",
+                "AI LinkedIn Post Generator",
+              ],
+            },
+            {
+              icon: "🎨",
+              title: "For Creators",
+              text: "Content creation involves research, writing, editing and presentation. Focused AI tools can help generate starting ideas and reduce repetitive parts of the workflow.",
+              links: [
+                "AI Instagram Caption Generator",
+                "AI YouTube Title & Description Generator",
+                "AI Blog Generator",
+                "AI Subtitle Generator",
+              ],
             },
             {
               icon: "🏢",
-              title: "Businesses",
-              text: "Explore chatbots, automations, websites and practical lead-generation systems.",
+              title: "For Professionals & Businesses",
+              text: "Professionals can use tools for communication and productivity, while businesses can request custom chatbots, automations, websites and lead-generation workflows.",
+              links: [
+                "AI Email Writer",
+                "AI Email Reply Generator",
+                "AI Grammar & Writing Fixer",
+                "Custom AI Solutions",
+              ],
             },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl border border-white/[0.06] bg-white/[0.018] p-6 backdrop-blur-xl transition hover:border-violet-400/15 hover:bg-white/[0.025]"
+          ].map((useCase) => (
+            <article
+              key={useCase.title}
+              className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 backdrop-blur-xl"
             >
-              <div className="text-2xl">{item.icon}</div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/10 bg-violet-500/[0.07] text-xl">
+                {useCase.icon}
+              </div>
 
-              <h3 className="mt-5 text-base font-bold text-white">
-                {item.title}
+              <h3 className="mt-5 text-xl font-bold text-white">
+                {useCase.title}
               </h3>
 
-              <p className="mt-2 text-xs leading-6 text-zinc-500">
-                {item.text}
+              <p className="mt-3 text-sm leading-7 text-zinc-500">
+                {useCase.text}
               </p>
-            </div>
+
+              <div className="mt-6 space-y-2">
+                {useCase.links.map((link) => (
+                  <div
+                    key={link}
+                    className="flex items-center gap-2 text-xs text-zinc-600"
+                  >
+                    <span className="text-violet-400">•</span>
+                    <span>{link}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -729,167 +1156,182 @@ export default function Home() {
 
       <section
         id="services"
-        className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
+        className="relative z-10 border-y border-white/[0.06] bg-white/[0.012]"
       >
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+              Custom Digital Solutions
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              Need something beyond a ready-made tool?
+            </h2>
+
+            <p className="mt-5 text-sm leading-7 text-zinc-500 sm:text-base">
+              KrishAIWorks also works on custom digital products. The right
+              solution depends on the workflow, users and business problem, so
+              projects are discussed before deciding what should actually be
+              built.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <article
+                key={service.title}
+                className="rounded-3xl border border-white/[0.07] bg-black/25 p-6 transition hover:-translate-y-1 hover:border-violet-400/15"
+              >
+                <div className="text-2xl">{service.icon}</div>
+
+                <h3 className="mt-5 text-lg font-bold text-white">
+                  {service.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-zinc-500">
+                  {service.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-violet-400/10 bg-gradient-to-r from-violet-500/[0.07] via-white/[0.018] to-cyan-500/[0.04] p-7">
+            <h3 className="text-xl font-bold text-white">
+              A custom project starts with the problem.
+            </h3>
+
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-500">
+              For a custom project, it helps to describe what currently takes
+              too much time, what information needs to move between systems,
+              who will use the solution and what result you want. This makes it
+              easier to decide whether an AI chatbot, automation, website,
+              dashboard or another approach is appropriate.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* CONTENT / GUIDES */}
+      {/* ========================================================= */}
+
+      <section className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
-            Digital Solutions
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+            Practical Guidance
           </p>
 
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Beyond tools.
-            <br />
-            <span className="bg-gradient-to-r from-violet-300 to-cyan-300 bg-clip-text text-transparent">
-              Build something useful.
-            </span>
+            Get more value from the tools.
           </h2>
 
-          <p className="mt-5 text-sm leading-7 text-zinc-500">
-            KrishAIWorks also builds practical digital systems for people and
-            businesses that need something more specific than an off-the-shelf
-            tool.
+          <p className="mt-5 text-sm leading-7 text-zinc-500 sm:text-base">
+            A tool is only useful when it fits the workflow around it. These
+            simple principles can help you use AI and digital utilities more
+            effectively.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-violet-400/15 hover:bg-white/[0.025]"
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: "Use specific inputs",
+              text: "For AI tools, clearer context generally produces more useful results. Include the relevant goal, audience, format and important details when the interface allows it.",
+            },
+            {
+              title: "Treat AI output as a draft",
+              text: "AI-generated text can be useful as a starting point, but it should still be edited for accuracy, tone, context and personal experience.",
+            },
+            {
+              title: "Choose simple tools when possible",
+              text: "If a task only requires a conversion, calculation or formatting operation, a focused utility may be more appropriate than an AI workflow.",
+            },
+            {
+              title: "Protect sensitive information",
+              text: "Before uploading information to any online service, consider whether the material contains passwords, confidential business information, private documents or other sensitive data.",
+            },
+            {
+              title: "Check important information",
+              text: "Summaries can omit details and generated answers can contain mistakes. Verify information when accuracy matters.",
+            },
+            {
+              title: "Build a repeatable workflow",
+              text: "If you regularly perform the same sequence of tasks, combining focused tools with a consistent workflow can save more time than using a tool only once.",
+            },
+          ].map((guide) => (
+            <article
+              key={guide.title}
+              className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/10 bg-violet-500/[0.07] text-xl transition group-hover:bg-violet-500/[0.12]">
-                {service.icon}
-              </div>
-
-              <h3 className="mt-6 text-xl font-bold text-white">
-                {service.title}
-              </h3>
+              <h3 className="text-lg font-bold text-white">{guide.title}</h3>
 
               <p className="mt-3 text-sm leading-7 text-zinc-500">
-                {service.description}
+                {guide.text}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
       {/* ========================================================= */}
-      {/* HOW IT WORKS */}
+      {/* PRIVACY / RESPONSIBLE USE */}
       {/* ========================================================= */}
 
-      <section
-        id="how"
-        className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
-      >
-        <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
-              How It Works
-            </p>
+      <section className="relative z-10 border-y border-white/[0.06] bg-white/[0.012]">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-white/[0.07] bg-black/25 p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+                Privacy & Data Awareness
+              </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Simple from start to finish.
-            </h2>
+              <h2 className="mt-4 text-3xl font-bold text-white">
+                Think about the information you upload.
+              </h2>
 
-            <p className="mt-4 text-sm leading-7 text-zinc-500">
-              The platform is designed so you can spend less time figuring out
-              software and more time completing the task you came for.
-            </p>
-          </div>
+              <p className="mt-5 text-sm leading-7 text-zinc-500">
+                Online tools can involve processing information in a browser,
+                through a server or through third-party services depending on
+                how an individual tool works. Users should avoid uploading
+                sensitive information unless they understand the relevant
+                privacy implications.
+              </p>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                number: "01",
-                title: "Choose a tool",
-                text: "Find a tool that matches the task you want to complete.",
-              },
-              {
-                number: "02",
-                title: "Provide your input",
-                text: "Enter the information or upload the content required by the selected tool.",
-              },
-              {
-                number: "03",
-                title: "Use the result",
-                text: "Review the generated or processed result and use it for your workflow.",
-              },
-            ].map((step) => (
-              <div key={step.number} className="relative">
-                <div className="text-sm font-black text-violet-400/70">
-                  {step.number}
-                </div>
+              <p className="mt-4 text-sm leading-7 text-zinc-500">
+                KrishAIWorks provides a{" "}
+                <a
+                  href="https://krishaiworks.com/privacy-policy"
+                  className="text-violet-300 hover:text-violet-200"
+                >
+                  Privacy Policy
+                </a>{" "}
+                explaining the platform's general approach to information,
+                analytics, advertising and third-party services.
+              </p>
+            </div>
 
-                <h3 className="mt-3 text-lg font-bold text-white">
-                  {step.title}
-                </h3>
+            <div className="rounded-3xl border border-white/[0.07] bg-black/25 p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+                Responsible AI Use
+              </p>
 
-                <p className="mt-2 text-sm leading-6 text-zinc-500">
-                  {step.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <h2 className="mt-4 text-3xl font-bold text-white">
+                Technology should assist judgment.
+              </h2>
 
-      {/* ========================================================= */}
-      {/* WHY KRISHAIWORKS */}
-      {/* ========================================================= */}
+              <p className="mt-5 text-sm leading-7 text-zinc-500">
+                AI tools are useful for drafting, organizing, summarizing and
+                exploring ideas, but they do not guarantee that every output is
+                accurate or appropriate. Users remain responsible for reviewing
+                and deciding how generated content is used.
+              </p>
 
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 sm:px-8">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
-              Why KrishAIWorks
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Focused on useful experiences.
-            </h2>
-
-            <p className="mt-5 max-w-xl text-sm leading-7 text-zinc-500">
-              Good tools should solve a clear problem without making the user
-              learn a complicated process first. KrishAIWorks focuses on
-              straightforward interfaces, practical use cases and tools that
-              can fit into everyday workflows.
-            </p>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              {
-                title: "Simple interfaces",
-                text: "Clear workflows designed around the task.",
-              },
-              {
-                title: "Practical use cases",
-                text: "Tools built around problems people actually encounter.",
-              },
-              {
-                title: "Growing collection",
-                text: "AI and utility tools organized in one platform.",
-              },
-              {
-                title: "Digital solutions",
-                text: "Custom automation, chatbot and website work when needed.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-white/[0.06] bg-white/[0.018] p-5 backdrop-blur-xl"
-              >
-                <div className="h-2 w-2 rounded-full bg-violet-400 shadow-lg shadow-violet-400/50" />
-
-                <h3 className="mt-4 text-sm font-semibold text-white">
-                  {item.title}
-                </h3>
-
-                <p className="mt-2 text-xs leading-6 text-zinc-600">
-                  {item.text}
-                </p>
-              </div>
-            ))}
+              <p className="mt-4 text-sm leading-7 text-zinc-500">
+                For important decisions or sensitive areas, use appropriate
+                professional or authoritative sources rather than relying only
+                on an AI-generated result.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -900,19 +1342,20 @@ export default function Home() {
 
       <section
         id="faq"
-        className="relative z-10 mx-auto w-full max-w-4xl scroll-mt-8 px-5 py-24 sm:px-8"
+        className="relative z-10 mx-auto max-w-4xl scroll-mt-8 px-5 py-24 sm:px-8"
       >
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
             FAQ
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Frequently asked questions.
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            Questions, answered.
           </h2>
 
-          <p className="mt-4 text-sm leading-7 text-zinc-500">
-            A few common questions about KrishAIWorks and its tools.
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-500">
+            A few practical answers about the tools, AI-generated content and
+            custom solutions available through KrishAIWorks.
           </p>
         </div>
 
@@ -920,54 +1363,23 @@ export default function Home() {
           {faqs.map((faq) => (
             <details
               key={faq.question}
-              className="group rounded-2xl border border-white/[0.07] bg-white/[0.018] p-5 backdrop-blur-xl"
+              className="group rounded-2xl border border-white/10 bg-white/[0.035] p-5"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-white">
-                <span>{faq.question}</span>
+              <summary className="cursor-pointer list-none font-medium text-white">
+                <div className="flex items-center justify-between gap-5">
+                  <span>{faq.question}</span>
 
-                <span className="text-lg text-zinc-600 transition group-open:rotate-45 group-open:text-violet-300">
-                  +
-                </span>
+                  <span className="text-xl text-violet-300 transition group-open:rotate-45">
+                    +
+                  </span>
+                </div>
               </summary>
 
-              <p className="mt-4 max-w-3xl text-sm leading-7 text-zinc-500">
+              <p className="mt-4 text-sm leading-7 text-zinc-500">
                 {faq.answer}
               </p>
             </details>
           ))}
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* HAVE A PROJECT IN MIND */}
-      {/* ========================================================= */}
-
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 sm:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-violet-400/[0.12] bg-gradient-to-br from-violet-500/[0.10] via-white/[0.02] to-cyan-500/[0.05] p-8 text-center shadow-2xl shadow-violet-950/20 backdrop-blur-xl sm:p-12">
-          <div className="pointer-events-none absolute left-1/2 top-[-160px] h-[350px] w-[600px] -translate-x-1/2 rounded-full bg-violet-500/[0.10] blur-[120px]" />
-
-          <div className="relative">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-300">
-              Have a project in mind?
-            </p>
-
-            <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
-              Need something built for your workflow?
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-400">
-              Whether you need an AI chatbot, an automation workflow, a
-              website or another digital solution, get in touch and describe
-              what you want to build.
-            </p>
-
-            <button
-              onClick={scrollToContact}
-              className="mt-8 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-3.5 text-sm font-semibold text-white shadow-xl shadow-violet-500/20 transition hover:-translate-y-0.5 hover:from-violet-400 hover:to-fuchsia-400 active:scale-95"
-            >
-              Contact Us →
-            </button>
-          </div>
         </div>
       </section>
 
@@ -977,543 +1389,64 @@ export default function Home() {
 
       <section
         id="contact"
-        className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-24 sm:px-8"
+        className="relative z-10 mx-auto max-w-5xl scroll-mt-8 px-5 py-24 sm:px-8"
       >
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-violet-400/10 bg-violet-500/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
-            Get In Touch
-          </div>
+        <div className="rounded-[2rem] border border-violet-400/20 bg-gradient-to-br from-violet-500/[0.13] via-white/[0.035] to-transparent p-7 text-center shadow-[0_30px_100px_rgba(79,70,229,0.12)] sm:p-12">
+          <span className="inline-flex rounded-full border border-violet-300/20 bg-violet-400/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-violet-200">
+            Work with KrishAIWorks
+          </span>
 
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Let&apos;s build something
+          <h2 className="mx-auto mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
+            Have an idea?
             <br />
-            <span className="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
-              useful together.
-            </span>
+            <span className="text-violet-300">Let's build it.</span>
           </h2>
 
-          <p className="mt-5 text-sm leading-7 text-zinc-500">
-            Choose whichever way is most convenient for you. Whether you have
-            a project idea, need help with something or simply want to connect,
-            I&apos;d love to hear from you.
-          </p>
-        </div>
-
-        <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {/* WHATSAPP */}
-          <a
-            href="https://wa.me/919015321788"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-emerald-400/20 hover:bg-emerald-500/[0.035]"
-          >
-            <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-emerald-500/[0.06] blur-3xl transition group-hover:bg-emerald-500/[0.12]" />
-
-            <div className="relative">
-              <div className="flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/10 bg-emerald-500/[0.07] text-xl">
-                  💬
-                </div>
-
-                <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-emerald-300">
-                  ↗
-                </span>
-              </div>
-
-              <h3 className="mt-6 text-base font-bold text-white">
-                WhatsApp
-              </h3>
-
-              <p className="mt-2 text-xs text-zinc-500">
-                @_krishbhardwaj
-              </p>
-
-              <p className="mt-4 text-xs leading-6 text-zinc-700">
-                Message directly on WhatsApp.
-              </p>
-            </div>
-          </a>
-
-          {/* INSTAGRAM */}
-          <a
-            href="https://instagram.com/krishaiworks"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-pink-400/20 hover:bg-pink-500/[0.035]"
-          >
-            <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-pink-500/[0.06] blur-3xl transition group-hover:bg-pink-500/[0.12]" />
-
-            <div className="relative">
-              <div className="flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-pink-400/10 bg-pink-500/[0.07] text-xl">
-                  ◎
-                </div>
-
-                <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-pink-300">
-                  ↗
-                </span>
-              </div>
-
-              <h3 className="mt-6 text-base font-bold text-white">
-                Instagram
-              </h3>
-
-              <p className="mt-2 text-xs text-zinc-500">
-                @krishaiworks
-              </p>
-
-              <p className="mt-4 text-xs leading-6 text-zinc-700">
-                Connect with KrishAIWorks on Instagram.
-              </p>
-            </div>
-          </a>
-
-          {/* EMAIL */}
-          <a
-            href="mailto:krishaiworks@gmail.com"
-            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-violet-400/20 hover:bg-violet-500/[0.035]"
-          >
-            <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-violet-500/[0.06] blur-3xl transition group-hover:bg-violet-500/[0.12]" />
-
-            <div className="relative">
-              <div className="flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/10 bg-violet-500/[0.07] text-xl">
-                  ✉
-                </div>
-
-                <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-violet-300">
-                  →
-                </span>
-              </div>
-
-              <h3 className="mt-6 text-base font-bold text-white">
-                Email
-              </h3>
-
-              <p className="mt-2 break-all text-xs text-zinc-500">
-                krishaiworks@gmail.com
-              </p>
-
-              <p className="mt-4 text-xs leading-6 text-zinc-700">
-                Send a detailed project enquiry by email.
-              </p>
-            </div>
-          </a>
-
-          {/* TELEGRAM */}
-          <a
-            href="https://t.me/KrishAIworks"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-cyan-400/20 hover:bg-cyan-500/[0.035]"
-          >
-            <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-cyan-500/[0.06] blur-3xl transition group-hover:bg-cyan-500/[0.12]" />
-
-            <div className="relative">
-              <div className="flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/10 bg-cyan-500/[0.07] text-xl">
-                  ✈
-                </div>
-
-                <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-cyan-300">
-                  ↗
-                </span>
-              </div>
-
-              <h3 className="mt-6 text-base font-bold text-white">
-                Telegram
-              </h3>
-
-              <p className="mt-2 text-xs text-zinc-500">
-                @KrishAIworks
-              </p>
-
-              <p className="mt-4 text-xs leading-6 text-zinc-700">
-                Reach KrishAIWorks through Telegram.
-              </p>
-            </div>
-          </a>
-
-          {/* AI CHAT / TYPEBOT */}
-          <a
-            href="https://typebot.co/krish-a-iworks-m4z1a0v"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.018] p-6 text-left shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-blue-400/20 hover:bg-blue-500/[0.035] sm:col-span-2 lg:col-span-2"
-          >
-            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-blue-500/[0.07] blur-3xl transition group-hover:bg-blue-500/[0.14]" />
-
-            <div className="relative flex flex-col sm:flex-row sm:items-center sm:gap-6">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-blue-400/10 bg-blue-500/[0.08] text-2xl">
-                🤖
-              </div>
-
-              <div className="mt-5 flex-1 sm:mt-0">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <h3 className="text-base font-bold text-white">
-                      AI Chat
-                    </h3>
-
-                    <p className="mt-2 text-xs text-zinc-500">
-                      Chat with KrishAIWorks
-                    </p>
-                  </div>
-
-                  <span className="text-zinc-700 transition group-hover:translate-x-1 group-hover:text-blue-300">
-                    ↗
-                  </span>
-                </div>
-
-                <p className="mt-4 text-xs leading-6 text-zinc-700">
-                  Have a quick question? Open the KrishAIWorks AI assistant and
-                  get help instantly.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-white/[0.05] bg-white/[0.012] px-5 py-4 text-center">
-          <p className="text-[11px] leading-6 text-zinc-700">
-            Prefer chatting directly? WhatsApp and Telegram are the quickest
-            ways to reach out. For detailed project requirements, email is
-            recommended.
-          </p>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* FINAL CTA */}
-      {/* ========================================================= */}
-
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-24 sm:px-8">
-        <div className="rounded-3xl border border-white/[0.06] bg-white/[0.018] px-6 py-10 text-center backdrop-blur-xl sm:px-10">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Find a tool that helps you get more done.
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-zinc-600">
-            Explore the commonly used tools or open the complete KrishAIWorks
-            directory.
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-500 sm:text-base">
+            Looking for an AI automation, website, chatbot, lead-generation
+            system or custom digital solution? Share what you want to build and
+            we can discuss the most practical approach.
           </p>
 
-          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-            <button
-              onClick={scrollToTools}
-              className="rounded-xl bg-violet-500/10 px-6 py-3 text-sm font-semibold text-violet-300 transition hover:bg-violet-500/15"
+          <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <a
+              href="https://wa.me/919015321788"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-4 text-sm font-semibold transition hover:bg-emerald-400/10"
             >
-              Explore Tools
-            </button>
+              💬 WhatsApp
+            </a>
 
             <a
-              href="/tools"
-              className="rounded-xl border border-white/[0.07] bg-white/[0.025] px-6 py-3 text-sm font-semibold text-zinc-400 transition hover:bg-white/[0.05] hover:text-white"
+              href="https://instagram.com/krishaiworks"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-4 text-sm font-semibold transition hover:bg-pink-400/10"
             >
-              View All Tools →
+              📸 Instagram
+            </a>
+
+            <a
+              href="https://t.me/KrishAIworks"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-4 text-sm font-semibold transition hover:bg-sky-400/10"
+            >
+              ✈️ Telegram
+            </a>
+
+            <a
+              href="mailto:krishaiworks@gmail.com"
+              className="rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-4 text-sm font-semibold transition hover:bg-indigo-400/10"
+            >
+              ✉️ Email
             </a>
           </div>
-        </div>
-      </section>
 
-      {/* ========================================================= */}
-      {/* EXTRA CONTENT BLOCK 1 — AI TOOLS */}
-      {/* ========================================================= */}
-
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
-        <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-9">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
-              AI Tools
-            </p>
-
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              AI tools designed around real tasks.
-            </h2>
-
-            <div className="mt-5 space-y-4 text-sm leading-7 text-zinc-500">
-              <p>
-                AI can be useful when it is applied to a specific problem.
-                KrishAIWorks focuses on practical AI tools that help turn
-                repetitive or time-consuming tasks into simpler workflows.
-              </p>
-
-              <p>
-                From summarizing information and improving written
-                communication to creating resumes and supporting study
-                workflows, each tool is designed with a particular use case in
-                mind.
-              </p>
-
-              <p>
-                The goal is not to make everyday work more complicated with
-                unnecessary features. It is to provide focused tools that are
-                easy to understand and useful when you actually need them.
-              </p>
-            </div>
-          </div>
-
-          <div className="rounded-3xl border border-violet-400/[0.10] bg-gradient-to-br from-violet-500/[0.07] via-white/[0.018] to-fuchsia-500/[0.04] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-9">
-            <h3 className="text-xl font-bold text-white">
-              Where AI can help
-            </h3>
-
-            <div className="mt-6 space-y-4">
-              {[
-                ["📚", "Understanding information", "Summarize and organize long or complex content."],
-                ["✍️", "Writing assistance", "Create clearer emails, posts, documents and other text."],
-                ["🎯", "Job preparation", "Improve resumes and prepare professional application material."],
-                ["🧠", "Learning support", "Make study material easier to understand and organize."],
-              ].map(([icon, title, text]) => (
-                <div
-                  key={title}
-                  className="flex gap-3 rounded-2xl border border-white/[0.05] bg-black/20 p-4"
-                >
-                  <span className="text-lg">{icon}</span>
-
-                  <div>
-                    <h4 className="text-sm font-semibold text-white">
-                      {title}
-                    </h4>
-
-                    <p className="mt-1 text-xs leading-6 text-zinc-600">
-                      {text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* EXTRA CONTENT BLOCK 2 — PRODUCTIVITY */}
-      {/* ========================================================= */}
-
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl border border-cyan-400/[0.08] bg-gradient-to-br from-cyan-500/[0.05] via-white/[0.018] to-violet-500/[0.04] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-9">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Productivity
-            </p>
-
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              Spend less time on repetitive work.
-            </h2>
-
-            <p className="mt-5 text-sm leading-7 text-zinc-500">
-              Productivity is not always about doing more. Often, it means
-              removing unnecessary steps from the work you already do.
-              KrishAIWorks includes tools that can help simplify common tasks
-              involving documents, writing, notes, information and everyday
-              digital workflows.
-            </p>
-
-            <p className="mt-4 text-sm leading-7 text-zinc-500">
-              Instead of switching between multiple complicated applications,
-              you can use focused tools for individual tasks and move on to
-              the work that actually matters.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-9">
-            <h3 className="text-xl font-bold text-white">
-              A practical approach to productivity
-            </h3>
-
-            <div className="mt-6 space-y-5">
-              {[
-                {
-                  number: "01",
-                  title: "Identify the repetitive task",
-                  text: "Start with the part of your workflow that takes unnecessary time.",
-                },
-                {
-                  number: "02",
-                  title: "Choose the right tool",
-                  text: "Use a focused AI or utility tool built around that particular task.",
-                },
-                {
-                  number: "03",
-                  title: "Review and continue",
-                  text: "Check the result, make any necessary changes and continue with your workflow.",
-                },
-              ].map((item) => (
-                <div key={item.number} className="flex gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-violet-400/10 bg-violet-500/[0.07] text-[10px] font-bold text-violet-300">
-                    {item.number}
-                  </span>
-
-                  <div>
-                    <h4 className="text-sm font-semibold text-white">
-                      {item.title}
-                    </h4>
-
-                    <p className="mt-1 text-xs leading-6 text-zinc-600">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* EXTRA CONTENT BLOCK 3 — STUDENTS & PROFESSIONALS */}
-      {/* ========================================================= */}
-
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
-        <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-fuchsia-300">
-              For Students & Professionals
-            </p>
-
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              Tools that fit into study and work.
-            </h2>
-
-            <p className="mt-5 text-sm leading-7 text-zinc-500">
-              Different people use technology for different reasons. A student
-              may need help understanding study material, while a professional
-              may need to write an email, prepare a resume or process a
-              document. KrishAIWorks brings these everyday use cases together
-              in one growing platform.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            <div className="rounded-2xl border border-white/[0.06] bg-black/20 p-6">
-              <div className="text-2xl">🎓</div>
-
-              <h3 className="mt-5 text-lg font-bold text-white">
-                For students
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-zinc-500">
-                Students can use tools for summarizing documents, organizing
-                notes, understanding topics and working with learning
-                material. The focus is on making information easier to work
-                with while keeping the workflow simple.
-              </p>
-
-              <p className="mt-3 text-sm leading-7 text-zinc-600">
-                These tools are intended to support learning and productivity,
-                not replace personal understanding or academic effort.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/[0.06] bg-black/20 p-6">
-              <div className="text-2xl">💼</div>
-
-              <h3 className="mt-5 text-lg font-bold text-white">
-                For professionals
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-zinc-500">
-                Professionals can use focused tools to improve everyday
-                communication, prepare job documents, process information and
-                reduce time spent on repetitive digital tasks.
-              </p>
-
-              <p className="mt-3 text-sm leading-7 text-zinc-600">
-                The tools are designed to assist your workflow while leaving
-                the final decisions, review and professional judgment with
-                you.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* EXTRA CONTENT BLOCK 4 — DIGITAL SOLUTIONS */}
-      {/* ========================================================= */}
-
-      <section className="relative z-10 mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
-        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="rounded-3xl border border-violet-400/[0.10] bg-gradient-to-br from-violet-500/[0.08] via-white/[0.018] to-cyan-500/[0.04] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-9">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/10 bg-violet-500/[0.08] text-xl">
-              🛠️
-            </div>
-
-            <h2 className="mt-6 text-2xl font-bold tracking-tight text-white">
-              Need more than a ready-made tool?
-            </h2>
-
-            <p className="mt-5 text-sm leading-7 text-zinc-500">
-              Some workflows need a custom solution. That is where KrishAIWorks
-              can move beyond individual tools and build something around a
-              specific requirement.
-            </p>
-
-            <button
-              onClick={scrollToContact}
-              className="mt-7 rounded-xl border border-violet-400/15 bg-violet-500/[0.08] px-5 py-3 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/[0.13]"
-            >
-              Discuss a Project →
-            </button>
-          </div>
-
-          <div className="rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-9">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
-              Custom Digital Solutions
-            </p>
-
-            <h3 className="mt-4 text-2xl font-bold text-white">
-              Build around the way you work.
-            </h3>
-
-            <p className="mt-4 text-sm leading-7 text-zinc-500">
-              KrishAIWorks can help turn a specific idea or repetitive
-              workflow into a practical digital system. The focus is on
-              understanding the requirement first and then choosing the
-              appropriate technology for the job.
-            </p>
-
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              {[
-                {
-                  icon: "🤖",
-                  title: "AI Chatbots",
-                  text: "Website assistants, FAQs and lead capture.",
-                },
-                {
-                  icon: "⚙️",
-                  title: "Automation",
-                  text: "Connect repetitive workflows and services.",
-                },
-                {
-                  icon: "🌐",
-                  title: "Websites",
-                  text: "Modern websites built around a clear purpose.",
-                },
-                {
-                  icon: "📊",
-                  title: "Lead Systems",
-                  text: "Capture and organize potential customer enquiries.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-white/[0.05] bg-black/20 p-4"
-                >
-                  <div className="text-lg">{item.icon}</div>
-
-                  <h4 className="mt-3 text-sm font-semibold text-white">
-                    {item.title}
-                  </h4>
-
-                  <p className="mt-1 text-xs leading-6 text-zinc-600">
-                    {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="mt-7 text-xs text-zinc-700">
+            @krishaiworks · krishaiworks@gmail.com
+          </p>
         </div>
       </section>
 
@@ -1521,86 +1454,117 @@ export default function Home() {
       {/* FOOTER */}
       {/* ========================================================= */}
 
-      <footer className="relative z-10 border-t border-white/[0.06]">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 py-10 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <div className="flex items-center gap-3">
-              <div className="relative h-9 w-9 overflow-hidden rounded-full border border-violet-400/15 bg-white/[0.04]">
-                <img
-                  src="/logo.png"
-                  alt="KrishAIWorks Logo"
-                  className="h-full w-full object-cover"
-                />
+      <footer className="relative z-10 border-t border-white/[0.06] px-5 py-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 md:grid-cols-3">
+            <div>
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 overflow-hidden rounded-full border border-violet-400/20">
+                  <img
+                    src="/logo.png"
+                    alt="KrishAIWorks"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <div>
+                  <p className="font-bold text-white">
+                    Krish<span className="text-blue-400">AI</span>Works
+                  </p>
+
+                  <p className="text-[10px] text-zinc-600">
+                    AI Solutions That Work
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <p className="text-sm font-black text-white">
-                  Krish
-                  <span className="text-blue-400">AI</span>
-                  Works
-                </p>
+              <p className="mt-4 max-w-sm text-xs leading-6 text-zinc-600">
+                Practical AI tools, productivity utilities, automation systems,
+                websites, chatbots and custom digital solutions.
+              </p>
+            </div>
 
-                <p className="text-[10px] text-zinc-700">
-                  AI Solutions That Work
-                </p>
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
+                Explore
+              </h3>
+
+              <div className="mt-4 space-y-3 text-xs text-zinc-600">
+                <a
+                  href="#tools"
+                  className="block transition hover:text-violet-300"
+                >
+                  Tools
+                </a>
+
+                <a
+                  href="#services"
+                  className="block transition hover:text-violet-300"
+                >
+                  Services
+                </a>
+
+                <a
+                  href="#how"
+                  className="block transition hover:text-violet-300"
+                >
+                  How It Works
+                </a>
+
+                <a
+                  href="#faq"
+                  className="block transition hover:text-violet-300"
+                >
+                  FAQ
+                </a>
+
+                <a
+                  href="/tools"
+                  className="block transition hover:text-violet-300"
+                >
+                  All Tools
+                </a>
               </div>
             </div>
 
-            <p className="mt-4 max-w-md text-xs leading-6 text-zinc-700">
-              Practical AI tools, productivity solutions and digital systems
-              designed to make everyday work simpler.
-            </p>
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
+                Legal
+              </h3>
+
+              <div className="mt-4 space-y-3 text-xs text-zinc-600">
+                <a
+                  href="https://krishaiworks.com/privacy-policy"
+                  className="block transition hover:text-violet-300"
+                >
+                  Privacy Policy
+                </a>
+
+                <a
+                  href="https://krishaiworks.com/terms-and-conditions"
+                  className="block transition hover:text-violet-300"
+                >
+                  Terms & Conditions
+                </a>
+
+                <a
+                  href="mailto:krishaiworks@gmail.com"
+                  className="block transition hover:text-violet-300"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-x-5 gap-y-3 text-xs text-zinc-600">
-            <a
-              href="/privacy-policy"
-              className="transition hover:text-violet-300"
-            >
-              Privacy Policy
-            </a>
-
-            <a
-              href="/terms-and-conditions"
-              className="transition hover:text-violet-300"
-            >
-              Terms & Conditions
-            </a>
-
-            <button
-              onClick={scrollToContact}
-              className="transition hover:text-violet-300"
-            >
-              Contact
-            </button>
-
-            <a
-              href="https://instagram.com/krishaiworks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-violet-300"
-            >
-              Instagram
-            </a>
-
-            <a
-              href="https://t.me/KrishAIworks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-violet-300"
-            >
-              Telegram
-            </a>
-          </div>
-        </div>
-
-        <div className="border-t border-white/[0.04]">
-          <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-5 py-5 text-[10px] text-zinc-800 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-            <p>
+          <div className="mt-10 flex flex-col gap-3 border-t border-white/[0.06] pt-7 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+            <p className="text-xs text-zinc-700">
               © {new Date().getFullYear()} KrishAIWorks. All rights reserved.
             </p>
 
-            <p>Built with purpose, not complexity.</p>
+            <p className="text-xs text-zinc-700">
+              Built with AI, code and curiosity.
+            </p>
           </div>
         </div>
       </footer>
