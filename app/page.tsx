@@ -426,7 +426,6 @@ export default function Home() {
   }, [search, commonlyUsedTools]);
 
   const aiTools = tools.filter((tool) => tool.category === "AI");
-  const utilityTools = tools.filter((tool) => tool.category === "Utility");
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
@@ -665,7 +664,7 @@ export default function Home() {
               What can you do here?
             </h3>
 
-            <div className="mt-6 space-y-4">
+            <div className="mt-6 space-y-3">
               {[
                 "Summarize documents and long-form content",
                 "Organize notes and study information",
@@ -680,7 +679,7 @@ export default function Home() {
                   key={item}
                   className="flex items-start gap-3 text-sm leading-6 text-zinc-400"
                 >
-                  <span className="mt-1 text-violet-300">✓</span>
+                  <span className="mt-1 text-violet-300">•</span>
                   <span>{item}</span>
                 </div>
               ))}
@@ -945,35 +944,6 @@ export default function Home() {
       </section>
 
       {/* ========================================================= */}
-      {/* UTILITY TOOLS */}
-      {/* ========================================================= */}
-
-      <section className="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-8">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
-            Utility Tools
-          </p>
-
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Small utilities for real digital tasks.
-          </h2>
-
-          <p className="mt-5 text-sm leading-7 text-zinc-500 sm:text-base">
-            Not every problem needs AI. Sometimes the best solution is a
-            straightforward utility that performs one job quickly. The
-            KrishAIWorks utility collection covers files, images, text, data,
-            conversions and other common digital operations.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {utilityTools.map((tool) => (
-            <ToolCard key={tool.name} tool={tool} />
-          ))}
-        </div>
-      </section>
-
-      {/* ========================================================= */}
       {/* HOW TO CHOOSE */}
       {/* ========================================================= */}
 
@@ -1001,28 +971,23 @@ export default function Home() {
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {[
               {
-                number: "01",
                 title: "Identify the task",
                 text: "Decide what you are trying to accomplish. For example, summarize a PDF, improve an email, create a resume or convert a file.",
               },
               {
-                number: "02",
                 title: "Choose the right tool",
                 text: "Use the search above or open the complete tools directory. Focused tools are easier to use when their purpose matches your task.",
               },
               {
-                number: "03",
                 title: "Review the result",
                 text: "Use the output as a starting point and check important information before relying on it for academic, professional or business decisions.",
               },
             ].map((step) => (
               <article
-                key={step.number}
+                key={step.title}
                 className="rounded-3xl border border-white/[0.07] bg-black/25 p-7"
               >
-                <span className="text-xs font-bold tracking-[0.25em] text-violet-400">
-                  {step.number}
-                </span>
+                <span className="text-2xl font-bold text-violet-300">•</span>
 
                 <h3 className="mt-5 text-xl font-bold text-white">
                   {step.title}
